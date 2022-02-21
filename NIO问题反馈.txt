@@ -1,0 +1,12 @@
+
+改过build.gradle 加了三行
+def appCenterSdkVersion = '4.2.0'
+implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+改了arr包 'client-sdk-embedded-1.19.0-alpha.0.25104180-1.aar'
+
+改过SpeechSDKExceptionHandler.java 注释掉一行
+//        mContext.dumpLog("crash.log");
+
+改过activity_main.xml 换了语音内容
+"早上好！嗨William，请叫我NOMI，初次见面，车里的事，就放心交给我吧。"

@@ -1,0 +1,41 @@
+！！！！！！！！！！！！！！！！！！！！！！！
+项目地址
+https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain
+官方文档：
+https://docs.microsoft.com/zh-cn/
+========================================================
+
+
+CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
+
+搭windows上coreXT环境时的认证操作，免去v-dongyueli登录认证
+D:\Git\TextToSpeechMain\.build\NuGet>CredentialProvider.VSS.exe -u "https://corext.pkgs.visualstudio.com/DefaultCollection/_apis/packaging/CoreXT/nuget/index.json"
+后面的字符串在D:\TextToSpeechMain\.corext\corext.config
+CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
+
+看cmake文件：/home/szhao/TextToSpeechMain/private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake/CMakeLists.txt
+安卓 Linux windows平台的cmake
+msttstest 
+D:\TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake
+
+https://www.zhihu.com/question/444825341 java学习路径
+
+整个build的pipeline   https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain?path=/ci/azure-pipelines.yml
+
+adb shell
+
+carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildId=27087930&view=artifacts&pathAsName=false&type=publishedArtifacts
+
+NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
+
+D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)  里面改了 TTS Reader (Carbon).csproj 11行 61行  替换所有1.20.0
+加一个nuget.config ??????????在哪找的忘记了
+yulin邮件里找 .dll .pdb 替一下
+D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\Form1.cs 改方法名SetSpeechSynthesisVoice 第38 80行
+D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为 1.20.0
+
+学习git,然后提交更改方案到 DeviceTTSRelease 
+BYD 的bug
+测试Yulin的NDK
+
+2.21 看git文档
