@@ -35,7 +35,8 @@ D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\Form1.cs 改�
 D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为 1.20.0
 
 学习git,然后提交更改方案到 DeviceTTSRelease 
-BYD 的bug
 测试Yulin的NDK
 
-2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的 具体时间，一天内没问题
+
+2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
+2.22 测试Yulin的NDK
