@@ -39,4 +39,5 @@ D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.confi
 
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
-2.22 测试Yulin的NDK
+2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
+2.23
