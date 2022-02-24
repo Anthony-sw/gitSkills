@@ -25,6 +25,7 @@ https://www.zhihu.com/question/444825341 java学习路径
 adb shell
 
 carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildId=27087930&view=artifacts&pathAsName=false&type=publishedArtifacts
+                  D:\Carbon\ci\build-windows.yml
 
 NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 
@@ -40,4 +41,5 @@ D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.confi
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
-2.23
+2.23 debug carbon(调试dll,在carbon里加断点)；更新版本D:\DeviceTTSRelease\tools\TTS Reader (Carbon)到 1.21，改TTS Reader (Carbon).csproj和packages.config为1.21
+2.24 还是debug carbon；测试两句话在Android phone上
