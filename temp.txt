@@ -8,11 +8,6 @@ https://docs.microsoft.com/zh-cn/
 
 CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
 
-搭windows上coreXT环境时的认证操作，免去v-dongyueli登录认证
-D:\Git\TextToSpeechMain\.build\NuGet>CredentialProvider.VSS.exe -u "https://corext.pkgs.visualstudio.com/DefaultCollection/_apis/packaging/CoreXT/nuget/index.json"
-后面的字符串在D:\TextToSpeechMain\.corext\corext.config
-CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
-
 看cmake文件：/home/szhao/TextToSpeechMain/private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake/CMakeLists.txt
 安卓 Linux windows平台的cmake
 msttstest 
@@ -29,11 +24,16 @@ carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildI
 
 NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 
-D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)  里面改了 TTS Reader (Carbon).csproj 11行 61行  替换所有1.20.0
-加一个nuget.config ??????????在哪找的忘记了
-yulin邮件里找 .dll .pdb 替一下
-D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\Form1.cs 改方法名SetSpeechSynthesisVoice 第38 80行
-D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为 1.20.0
+#Build TTS Reader:
+1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
+2.TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为新版本
+3.Form1.cs 改方法名SetSpeechSynthesisVoice 第44 86行
+4.TTS Reader (Carbon)\TTS Reader (Carbon)\bin\x64\Debug 里加个Voices文件夹，加Font进去
+*加一个nuget.config ??? 好像不用加了直接找到了package
+
+#Build TextToSpeechMain, cmake 
+1.TextToSpeechMain\external\onnx_runtime 加onnx包
+2.TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake\bin\Debug 加个onnx的.dll
 
 学习git,然后提交更改方案到 DeviceTTSRelease 
 测试Yulin的NDK
@@ -43,3 +43,4 @@ D:\DeviceTTSRelease\tools\TTS Reader (Carbon)\TTS Reader (Carbon)\packages.confi
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
 2.23 debug carbon(调试dll,在carbon里加断点)；更新版本D:\DeviceTTSRelease\tools\TTS Reader (Carbon)到 1.21，改TTS Reader (Carbon).csproj和packages.config为1.21
 2.24 还是debug carbon；测试两句话在Android phone上
+2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon
