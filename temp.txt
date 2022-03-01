@@ -24,6 +24,8 @@ carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildI
 
 NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 
+HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Customer_HiPhi
+
 #Build TTS Reader:
 1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
 2.TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为新版本
@@ -43,4 +45,6 @@ NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
 2.23 debug carbon(调试dll,在carbon里加断点)；更新版本D:\DeviceTTSRelease\tools\TTS Reader (Carbon)到 1.21，改TTS Reader (Carbon).csproj和packages.config为1.21
 2.24 还是debug carbon；测试两句话在Android phone上
-2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon
+2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon没成
+
+2.28 帮 高合HiPhi： build sample，查看log解决不出声的问题；
