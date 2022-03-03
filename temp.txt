@@ -3,6 +3,8 @@
 https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain
 官方文档：
 https://docs.microsoft.com/zh-cn/
+Azure Pipelines :(Yaml格式）
+https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops
 ========================================================
 
 
@@ -47,4 +49,12 @@ HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Cust
 2.24 还是debug carbon；测试两句话在Android phone上
 2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon没成
 
-2.28 帮 高合HiPhi： build sample，查看log解决不出声的问题；
+2.28 帮 yuntong 高合HiPhi： build sample，查看log解决不出声的问题；
+3.1 看菜鸟教程 java,看到正则表达式；
+UTest迁移到Windows平台
+https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain/pullrequest/2654672?_a=files xudong的pr
+https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/ci/Funcational-Rolling-Test.yml
+https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest/testdata
+3.2 UTest相关：看func-roll-test.yml,看cmake;
+旧版pipeline样例 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12284
+3.3
