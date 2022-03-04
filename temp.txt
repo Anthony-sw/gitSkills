@@ -58,7 +58,15 @@ https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest
 3.2 UTest相关：看func-roll-test.yml,看cmake;
 旧版pipeline样例 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12284
 3.3 学习cmake,看windows和linux的utest的cmakelists; 已经写好的makelist编译不过
+3.4 试图编译过
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
-message(STATUS "  ??=${SpeechRoot}")
 
+cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=EmbeddedLegacy -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
+
+NUGET_CONFIG= cygpath -aw nuget_onnxruntime.config
+
+set(RepoRoot /D/temp/TextToSpeechMain)
+message(STATUS "????RepoRoot=${RepoRoot}")
+message(STATUS "????CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}")
+message(STATUS "????ExternalNeuralSharedLibraries=${ExternalNeuralSharedLibraries}")
