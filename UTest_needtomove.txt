@@ -1,29 +1,125 @@
-acousticprosodytaggerTest
+acousticprosodytaggerTest           ??
+AcronymHandlingTest
 baseclasstest
-CompoundWordBreakerTest
+BLSTMPolyphonyTest
+BLSTMProsodyBreakerTest
+BLSTMWordBreakerTest
+BoundaryToneTaggerTest              ??
+codectest                           ??
+CompoundWordBreakerTest             ??
+CRFDecoderTest
+CRFEmphasisTaggerTest               ??
+CustomerTNTest                      ??
+DNNDecoderTest                      ??
+DomainMappingTest
+EmotionalNUSTest                    ??
 engineadapterTest
-FeatureExtractionTest
+enhancedSSMLTest
+FeatureExtractionTest               ??
+foreignwordsTest                    ??
 frameworktest
-FrenchLiaisonTest
-HTSVoiceDataTest
-KoreanLochandTest
+FrenchLiaisonTest                   ??
+HTSVoiceDataTest                    ??
+ispenginepronunciationTest
+JapaneseLochandTest                 ??
+KoreanLochandTest                   ??
 LangIdentifierTest
 lexiconTest
-linguisticprosodytaggerTest
-nGramTest
-polyphonyTest
+linguisticprosodytaggerTest         ??
+LowResourceFrontendTest             ??
+lspnetTest
+lspweightcalculationTest
+LwHuffTest
+MandarinLochandTest                 ??
+MarianPolyphoneTest                 ??
+metadataoutputTest                  ??
+MixLingualTest                      ??
+MSTTSTest                           !!!!!
+MultiWaveInventoryTest
+NeuralCRFWordBreakerTest            ??
+nGramTest                           ??
+NoStandardWordHandlingTest          ??
+nuspsruntimeTest                    ??
+nusruntimeTest                      ??
+PitchAccentTest
+PolyphonyHandlingTest               ??
+PolyphonyModelPronunciationCheckerTest  ??
+polyphonyTest                       ??
 postaggertest
 PostWordBreakerHelperTest
-prontest
-PsolaTest
+prontest                            ??
+ProsodyTemplateTest                 ??
+PsolaTest                           ??
+PureDigitClassifierTest             ??
+RNNLPTTest                          ??
+RNNLTSTest                          ??
+RNNPolyphoneTest                    ??
+RNNPOSTest                          ??
 rulerTest
 RussianLochandTest
-SentAndPuncDetectionTest
+ScalableRUSNUSTest                  ??
+SentAndPuncDetectionTest            ??
 sentsepTest
-textanalyzertest
+SPSworldSynthesisTest
+TaskQueueTest
+textanalyzertest                    ??
+TransformerEzafePredictorTest       ??
+TransformerLTSTest                  ??
+TransformerWordBreakerTest          ??
+TrieTreeTest                        ??
+TTSTNTransducerTest                 ??
 UnitLatticeGenerationTest
-unitselectionTest
-vocoderTest
-wavegenerationTest
+unitselectionTest                   ??
+UtteranceDocumentTest               ??
+vocoderTest                         ??
+wavegenerationTest                  ??
 wordbreakerTest
-wordlistTest
+wordlistTest                        ??
+
+xudong added succeed 26 ,UnitLatticeGeneration failed;
+
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/acousticprosodytagger utest/acousticprosodytagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/AcronymHandling utest/AcronymHandling)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/baseclass utest/baseclass)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMPolyphony utest/BLSTMPolyphony)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMProsodyBreaker utest/BLSTMProsodyBreaker)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMWordBreaker utest/BLSTMWordBreaker)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BoundaryToneTagger utest/BoundaryToneTagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/codec utest/codec)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CompoundWordBreaker utest/CompoundWordBreaker)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFDecoder utest/CRFDecoder)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFEmphasisTagger utest/CRFEmphasisTagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CustomerTN utest/CustomerTN)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DNNDecoder utest/DNNDecoder)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DomainMapping utest/DomainMapping)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/EmotionalNUS utest/EmotionalNUS)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/engineadapter utest/engineadapter)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/EnhancedSSML utest/EnhancedSSML)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/FeatureExtraction utest/FeatureExtraction)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/foreignwords utest/foreignwords)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/framework utest/framework)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/FrenchLiaison utest/FrenchLiaison)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/HTSVoiceData utest/HTSVoiceData)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/ispenginepronunciation utest/ispenginepronunciation)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/JapaneseLochand utest/JapaneseLochand)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/KoreanLochand utest/KoreanLochand)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LangIdentifier utest/LangIdentifier)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lexicon utest/lexicon)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/linguisticprosodytagger utest/linguisticprosodytagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LowResourceFrontend utest/LowResourceFrontend)
+
+
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lspnet utest/lspnet)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lspweightcalculation utest/lspweightcalculation)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LwHuff utest/LwHuff)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/MultiWaveInventory utest/MultiWaveInventory)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/PitchAccent utest/PitchAccent)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/postagger utest/postagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/PostWordBreakerHelper utest/PostWordBreakerHelper)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/ruler utest/ruler)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/RussianLochand utest/RussianLochand)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/sentseptest utest/sentseptest)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/SPSworldSynthesis utest/SPSworldSynthesis)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/TaskQueue utest/TaskQueue)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/UnitLatticeGeneration utest/UnitLatticeGeneration)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/wordbreaker utest/wordbreaker)
