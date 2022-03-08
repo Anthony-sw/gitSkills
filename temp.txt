@@ -79,3 +79,64 @@ message(STATUS "????CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}")
 message(STATUS "????ExternalNeuralSharedLibraries=${ExternalNeuralSharedLibraries}")
 
 TextToSpeechMain\private\dev\speech\tts\shenzhou
+
+#ifdef __GNUC__
+#include <unistd.h> //int access(const char *filenpath, int mode)
+#elif _MSC_VER
+#include<io.h>  // int _access( const char *path, int mode ) 
+#endif 
+WINBASEAPI
+BOOL
+WINAPI
+CopyFileW(
+	_In_ LPCWSTR lpExistingFileName,
+	_In_ LPCWSTR lpNewFileName,
+	_In_ BOOL bFailIfExists
+)
+{
+	try
+	{
+		char cNewFileName[MAX_PATH];
+		memset(cNewFileName, 0, MAX_PATH);
+		int nBytes = WideCharToMultiByte(CP_UTF8, 0, lpNewFileName, wcslen(lpNewFileName), cNewFileName, MAX_PATH, NULL, NULL);
+		cNewFileName[nBytes] = 0;
+
+		char cExistingFileName[MAX_PATH];
+		memset(cExistingFileName, 0, MAX_PATH);
+		nBytes = WideCharToMultiByte(CP_UTF8, 0, lpExistingFileName, wcslen(lpExistingFileName), cExistingFileName, MAX_PATH, NULL, NULL);
+		cExistingFileName[nBytes] = 0;
+
+        #ifdef __GNUC__
+        if (bFailIfExists && access(cNewFileName, 0))
+        {
+            return FALSE;
+        }
+        #elif _MSC_VER
+        if (bFailIfExists && _access(cNewFileName, 0))
+        {
+            return FALSE;
+        }
+        #endif 
+		
+		FILE *fp1;
+		fp1 = fopen(cExistingFileName, "r");
+		FILE *fp2;
+		fp2 = fopen(cNewFileName, "w");
+
+		char buff[1024] = { '\0' };
+		int count = 0;
+		while ((count = fread(buff, 1, 1024, fp1)) != 0)
+		{
+			fwrite(buff, 1, count, fp2);
+		}
+
+		fclose(fp1);
+		fclose(fp2);
+
+		return TRUE;
+	}
+	catch (...)
+	{
+		return FALSE;
+	}
+}
