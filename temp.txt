@@ -7,20 +7,16 @@ Azure Pipelines :(Yaml格式）
 https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops
 ========================================================
 D盘空间 除了temp origin original 约15G
+可用的windows虚拟机 stcsrv-G64
 
 
 CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
-
-看cmake文件：/home/szhao/TextToSpeechMain/private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake/CMakeLists.txt
-安卓 Linux windows平台的cmake
-msttstest 
-D:\TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake
 
 https://www.zhihu.com/question/444825341 java学习路径
 
 整个build的pipeline   https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain?path=/ci/azure-pipelines.yml
 
-adb shell
+adb shell，Android系统的shell,待学习；
 
 carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildId=27087930&view=artifacts&pathAsName=false&type=publishedArtifacts
                   D:\Carbon\ci\build-windows.yml
@@ -41,31 +37,34 @@ HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Cust
 2.TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake\bin\Debug 加个onnx的.dll
 3.如果是-D BUILD_TARGET=EmbeddedLegacy或embeded，Font都不能用neural的否则报错
 
-学习git,然后提交更改方案到 DeviceTTSRelease 
-测试Yulin的NDK
+#Android studio 改java jdk版本，file - project structure - sdk location最下面jdk location;
 
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
-2.23 debug carbon(调试dll,在carbon里加断点)；更新版本D:\DeviceTTSRelease\tools\TTS Reader (Carbon)到 1.21，改TTS Reader (Carbon).csproj和packages.config为1.21
+2.23 debug carbon(调试dll,在carbon里加断点)；更新版本D:\DeviceTTSRelease\tools\TTS Reader (Carbon)到 1.21，改动见 #Build TTS Reader
 2.24 还是debug carbon；测试两句话在Android phone上
-2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon没成
+2.25 在temp里重新clone，建分支，build；debug 离线tts;build carbon没成功
 
 2.28 帮 yuntong 高合HiPhi： build sample，查看log解决不出声的问题；
 3.1 看菜鸟教程 java,看到正则表达式；
-UTest迁移到Windows平台
+NEW TASK: UTest迁移到Windows平台
 https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain/pullrequest/2654672?_a=files xudong的pr
 https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/ci/Funcational-Rolling-Test.yml Windows平台的pipeline
 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12421&view=Tab_Tasks Linux平台的pipeline
 https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest/testdata UTest的data
-3.2 UTest相关：看func-roll-test.yml,看cmake;
 旧版pipeline样例 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12284
-3.3 学习cmake,看windows和linux的utest的cmakelists; 已经写好的makelist编译不过
+怎样调试UTest: Debug - xxx Debug Properties - Debugging - Working directory 改为.exe的目录 
+3.2 UTest相关：看func-roll-test.yml,看cmake;
+3.3 学习cmake,看windows和linux的utest的cmakelists; cmake在-DBUILD_TARGET=Embedded编译不过，EmbeddedLegacy才过；
 3.4 试图编译过
 
-3.7 utest；测了一遍xudong的，有一个failed，UnitLatticeGeneration; 在根目录下可以embeded编译过，不知道为啥
+3.7 utest；测了一遍xudong的，有一个failed，UnitLatticeGeneration; 在根目录下可以embeded编译过，不知道为啥？
 3.8 D:\origin\TextToSpeechMain\SpeechXWindows\private\dev\xwindows\xwin.cpp 中的copyfile deletefile movefile; UnitLatticeGeneration通过
 utest目录大小写不敏感？
+3.9 CompareBinaryFile 很难搞，需要debug进engine；debug UTest: acousticprosodytagger  DNNDecoder
+申请一个wifi？
+3.10 Customer_几何 那边测了下apk和sample;
 
 
 
@@ -75,11 +74,9 @@ cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=
 
 set(RepoRoot /D/temp/TextToSpeechMain)
 message(STATUS "????RepoRoot=${RepoRoot}")
-message(STATUS "????CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}")
-message(STATUS "????ExternalNeuralSharedLibraries=${ExternalNeuralSharedLibraries}")
 
-TextToSpeechMain\private\dev\speech\tts\shenzhou
 
+//改过的xwin.cpp,3.8
 #ifdef __GNUC__
 #include <unistd.h> //int access(const char *filenpath, int mode)
 #elif _MSC_VER
