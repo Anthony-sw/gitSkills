@@ -65,7 +65,7 @@ utest目录大小写不敏感？
 3.9 CompareBinaryFile 很难搞，需要debug进engine；debug UTest: acousticprosodytagger  DNNDecoder
 申请一个wifi？
 3.10 Customer_几何 那边测了下apk和sample;
-.3132e123r23r 测试测试aslkjgijencwnkejcsakf
+.3132e123r23r 测试测试aslmmmmmmmmmmmmmmm
 
 
 
