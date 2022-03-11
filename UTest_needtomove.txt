@@ -1,16 +1,16 @@
-acousticprosodytaggerTest           ??
+acousticprosodytaggerTest           ??  1 failed:CompareBinaryFile wav文件; 2 Exception: CompareTextFile 编码不一样，unicode
 AcronymHandlingTest
 baseclasstest
 BLSTMPolyphonyTest
 BLSTMProsodyBreakerTest
 BLSTMWordBreakerTest
-BoundaryToneTaggerTest              ??
-codectest                           ??
+BoundaryToneTaggerTest              ?? 编译不过，GetTempFileName函数没有实现
+codectest                           ?? case00: CompareBinaryFile lsp文件；
 CompoundWordBreakerTest             ??
 CRFDecoderTest
 CRFEmphasisTaggerTest               ??
 CustomerTNTest                      ??
-DNNDecoderTest                      ??
+DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
 EmotionalNUSTest                    ??
 engineadapterTest
