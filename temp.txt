@@ -54,9 +54,10 @@ https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/ci/Funca
 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12421&view=Tab_Tasks Linux平台的pipeline
 https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest/testdata UTest的data
 旧版pipeline样例 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12284
-怎样调试UTest: Debug - xxx Debug Properties - Debugging - Working directory 改为.exe的目录 
-改了 ！！！D:\origin\TextToSpeechMain\SpeechXWindows\private\dev\xwindows\xwin.cpp 中的copyfile deletefile movefile
+怎样调试UTest: Debug - xxx Debug Properties - Debugging - Working directory 改为.exe所在的目录 
+改了 ！！！D:\origin\TextToSpeechMain\SpeechXWindows\private\dev\xwindows\xwin.cpp 中的copyfile deletefile movefile，UnitLatticeGeneration通过
 	加了xwin.cpp 5916行的一个函数，原本在下面ifndef _MSC_VER 里面；
+	....\utest\CompoundWordBreaker\Compoundwordbreakertest.cpp 338行 _wfopen_s加了ccs="UTF-8"，Compoundwordbreakertest通过；
 
 3.2 UTest相关：看func-roll-test.yml,看cmake;
 3.3 学习cmake,看windows和linux的utest的cmakelists; cmake在-DBUILD_TARGET=Embedded编译不过，EmbeddedLegacy才过；
@@ -72,7 +73,12 @@ xwin.cpp里的CopyFile 的if还是需要!access ？因为acousticprosodytaggerte
 3.11 customer几何,帮他们build sample,解决了online connect failed问题; 罗列utest问题
 ！！！以后提交pr，需要Squash commit！！！！！！！！！！！！！！！！！
 
-
+3.14 在linux上debug UTest；debug CompoundWordBreaker;
+Host V-ciguo
+  HostName stcvl-212
+  User v-ciguopassword
+一台linux的虚拟机，密码Pass_word
+3.15 Compoundwordbreakertest通过；CompareTextFile没解决；换了一套testdata
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
