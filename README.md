@@ -1,5 +1,3 @@
-# gitSkills
-one line diff
-add another line
-add bug fix
-
+# Questions
+deviceTTSrelease的提交怎么直接update了？
+怎么commit XWindows

@@ -4,24 +4,24 @@ baseclasstest
 BLSTMPolyphonyTest
 BLSTMProsodyBreakerTest
 BLSTMWordBreakerTest
-BoundaryToneTaggerTest              ?? 编译不过，GetTempFileName函数没有实现
+BoundaryToneTaggerTest              ?? 解决：编译；CompareTextFile；  1 Exception: xwin.cpp中缺 CreateFileW
 codectest                           ?? case00: CompareBinaryFile lsp文件；
-CompoundWordBreakerTest             ??
+CompoundWordBreakerTest             ?? Pass;
 CRFDecoderTest
-CRFEmphasisTaggerTest               ??
-CustomerTNTest                      ??
+CRFEmphasisTaggerTest               ??  GetEngine 抛出异常
+CustomerTNTest                      ??  wei
 DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
 EmotionalNUSTest                    ??
 engineadapterTest
 enhancedSSMLTest
-FeatureExtractionTest               ??
+FeatureExtractionTest               ??  wei
 foreignwordsTest                    ??
 frameworktest
 FrenchLiaisonTest                   ??
-HTSVoiceDataTest                    ??
+HTSVoiceDataTest                    ??  编译不过
 ispenginepronunciationTest
-JapaneseLochandTest                 ??
+JapaneseLochandTest                 ??  wei
 KoreanLochandTest                   ??
 LangIdentifierTest
 lexiconTest
@@ -30,7 +30,7 @@ LowResourceFrontendTest             ??
 lspnetTest
 lspweightcalculationTest
 LwHuffTest
-MandarinLochandTest                 ??
+MandarinLochandTest                 ??  wei
 MarianPolyphoneTest                 ??
 metadataoutputTest                  ??
 MixLingualTest                      ??
@@ -67,16 +67,17 @@ TransformerEzafePredictorTest       ??
 TransformerLTSTest                  ??
 TransformerWordBreakerTest          ??
 TrieTreeTest                        ??
-TTSTNTransducerTest                 ??
+TTSTNTransducerTest                 ??  编译不过
 UnitLatticeGenerationTest
 unitselectionTest                   ??
 UtteranceDocumentTest               ??
-vocoderTest                         ??
+vocoderTest                         ?? wei
 wavegenerationTest                  ??
 wordbreakerTest
 wordlistTest                        ??
 
 xudong added succeed 26 ,UnitLatticeGeneration failed;
+xudong多加了emotion MultiFont NusLongUnitRuntime NgramTrie PersonNameNE sapiengine里的cmakelists
 
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/acousticprosodytagger utest/acousticprosodytagger)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/AcronymHandling utest/AcronymHandling)
@@ -92,23 +93,12 @@ xudong added succeed 26 ,UnitLatticeGeneration failed;
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CustomerTN utest/CustomerTN)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DNNDecoder utest/DNNDecoder)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DomainMapping utest/DomainMapping)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/EmotionalNUS utest/EmotionalNUS)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/engineadapter utest/engineadapter)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/EnhancedSSML utest/EnhancedSSML)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/FeatureExtraction utest/FeatureExtraction)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/foreignwords utest/foreignwords)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/framework utest/framework)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/FrenchLiaison utest/FrenchLiaison)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/HTSVoiceData utest/HTSVoiceData)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/ispenginepronunciation utest/ispenginepronunciation)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/JapaneseLochand utest/JapaneseLochand)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/KoreanLochand utest/KoreanLochand)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LangIdentifier utest/LangIdentifier)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lexicon utest/lexicon)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/linguisticprosodytagger utest/linguisticprosodytagger)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LowResourceFrontend utest/LowResourceFrontend)
-
-
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lspnet utest/lspnet)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/lspweightcalculation utest/lspweightcalculation)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/LwHuff utest/LwHuff)
@@ -123,3 +113,5 @@ xudong added succeed 26 ,UnitLatticeGeneration failed;
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/TaskQueue utest/TaskQueue)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/UnitLatticeGeneration utest/UnitLatticeGeneration)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/wordbreaker utest/wordbreaker)
+endif()
+
