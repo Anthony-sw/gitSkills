@@ -58,7 +58,7 @@ https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest
 	加了xwin.cpp 中 GetTempFileName函数； BoundaryToneTaggerTest 编译过
 	....\utest\CompoundWordBreaker\Compoundwordbreakertest.cpp 338行等三行 _wfopen_s加了ccs="UTF-8"，Compoundwordbreakertest通过；
 	BoundaryToneTaggerTest.cpp 160行 UTF_VERIFY(CTestUtil::CompareTextFile加了个 或||，上面加个文件；
-	xwin.cpp中 加struct XWIN_HANDLE，CreateFileW ；
+	xwin.cpp中 加struct XWIN_HANDLE，CreateFileW ,GetFileType；
 
 3.2 UTest相关：看func-roll-test.yml,看cmake;
 3.3 学习cmake,看windows和linux的utest的cmakelists; cmake在-DBUILD_TARGET=Embedded编译不过，EmbeddedLegacy才过；
