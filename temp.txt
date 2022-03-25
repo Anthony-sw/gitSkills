@@ -3,6 +3,7 @@
 https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain
 官方文档：
 https://docs.microsoft.com/zh-cn/
+https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=msvc-170 函数
 Azure Pipelines :(Yaml格式）
 https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops
 ========================================================
@@ -24,6 +25,8 @@ carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildI
 NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 
 HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Customer_HiPhi
+
+GWM的repo地址： https://speechoutput.visualstudio.com/_git/Customer_GWM
 
 #Build TTS Reader:
 1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
@@ -57,8 +60,9 @@ https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest
 改了 ！！！D:\origin\TextToSpeechMain\SpeechXWindows\private\dev\xwindows\xwin.cpp 中的copyfile deletefile movefile，UnitLatticeGeneration通过
 	加了xwin.cpp 中 GetTempFileName函数； BoundaryToneTaggerTest 编译过
 	....\utest\CompoundWordBreaker\Compoundwordbreakertest.cpp 338行等三行 _wfopen_s加了ccs="UTF-8"，Compoundwordbreakertest通过；
-	BoundaryToneTaggerTest.cpp 160行 UTF_VERIFY(CTestUtil::CompareTextFile加了个 或||，上面加个文件；
-	xwin.cpp中 加struct XWIN_HANDLE，CreateFileW ,GetFileType；
+	BoundaryToneTaggerTest.cpp 两个case分别加 UTF_VERIFY(CTestUtil::CompareTextFile加了个 或||，上面加个文件；
+		下面的case，if (fExisted){}里面改了，不再用GetTempFileName函数；
+	xwin.cpp中 加struct XWIN_HANDLE，CreateFileW ,GetFileType；删了
 
 3.2 UTest相关：看func-roll-test.yml,看cmake;
 3.3 学习cmake,看windows和linux的utest的cmakelists; cmake在-DBUILD_TARGET=Embedded编译不过，EmbeddedLegacy才过；
@@ -78,11 +82,20 @@ xwin.cpp里的CopyFile 的if还是需要!access ？因为acousticprosodytaggerte
 Host V-ciguo
   HostName stcvl-212
   User v-ciguopassword
+password= Pass_word
 一台linux的虚拟机，密码Pass_word
 3.15 Compoundwordbreakertest通过；CompareTextFile没解决；换了一套testdata
 3.16 加了俩cmakelist: PolyphonyModelPronunciationChecker和NeuralCRFWordBreaker; BoundaryToneTaggerTest改了一个failed；换成TTSShenzhouDataDrop的testdata不行；
 UTest 名称与哪相同？文件夹还是cpp？
 3.17 学习git submodule; BoundaryToneTagger另一个failed是xwin.cpp缺CreateFileW；
+3.18 try to fix BoundaryToneTagger; 测试怎样改cmake编译快;
+
+3.21 找为啥xwin.cpp加了CreateFileW等函数，pEngine反而failed： 因为windows没有用xwin.cpp里面的实现，直接用的系统实现； 改BoundaryToneTagger
+3.22 为啥createfile可以用windows实现，copyfile不能？一部分一部分？；include winbase.h后redifine; CompareTextFile过了3 UT
+3.23 UT 看vocoder；the NIO stop latency issue,repro;
+3.24 the NIO stop latency issue:Guangyu fixed(https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain/pullrequest/2848462?_a=files&iteration=2&base=1)
+	更新长城的sample，但是crash；
+3.25 还是the NIO stop latency issue；更新长城的sample；
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
