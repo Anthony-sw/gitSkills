@@ -40,6 +40,7 @@ GWM的repo地址： https://speechoutput.visualstudio.com/_git/Customer_GWM
 3.如果是-D BUILD_TARGET=EmbeddedLegacy或embeded，Font都不能用neural的否则报错
 
 #Android studio 改java jdk版本，file - project structure - sdk location最下面jdk location;
+1.sample 新老版本注意 EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath); 老版本没有这句
 
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
@@ -87,7 +88,7 @@ password= Pass_word
 3.15 Compoundwordbreakertest通过；CompareTextFile没解决；换了一套testdata
 3.16 加了俩cmakelist: PolyphonyModelPronunciationChecker和NeuralCRFWordBreaker; BoundaryToneTaggerTest改了一个failed；换成TTSShenzhouDataDrop的testdata不行；
 UTest 名称与哪相同？文件夹还是cpp？
-3.17 学习git submodule; BoundaryToneTagger另一个failed是xwin.cpp缺CreateFileW；
+3.17 学习git submodule; BoundaryToneTagger另一个failed是xwin.cpp缺CreateFileW；不是缺createfilew,是code本来有问题，本来就绕过了backup.
 3.18 try to fix BoundaryToneTagger; 测试怎样改cmake编译快;
 
 3.21 找为啥xwin.cpp加了CreateFileW等函数，pEngine反而failed： 因为windows没有用xwin.cpp里面的实现，直接用的系统实现； 改BoundaryToneTagger
@@ -96,6 +97,9 @@ UTest 名称与哪相同？文件夹还是cpp？
 3.24 the NIO stop latency issue:Guangyu fixed(https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain/pullrequest/2848462?_a=files&iteration=2&base=1)
 	更新长城的sample，但是crash；
 3.25 还是the NIO stop latency issue；更新长城的sample；
+
+3.28 改BoundaryToneTagger,为啥没有backup？；the NIO stop latency issue ,test, Guangyu解决了
+3.29 BoundaryToneTagger,CopyFileW改了，remove不行；xwin.cpp deletefile加了errno; after get default engine, cannot remove 1033.BRK; 
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
