@@ -9,7 +9,7 @@ codectest                           ?? case00: CompareBinaryFile lsp文件；
 CompoundWordBreakerTest             ?? Pass;
 CRFDecoderTest
 CRFEmphasisTaggerTest               ??  GetEngine 抛出异常
-CustomerTNTest                      ??  open .dat 文件不是utf16的所以报错；
+CustomerTNTest                      ??  pass ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass;
 DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
 EmotionalNUSTest                    ??
@@ -63,18 +63,18 @@ sentsepTest
 SPSworldSynthesisTest
 TaskQueueTest
 textanalyzertest                    ??
-TransformerEzafePredictorTest       ??
-TransformerLTSTest                  ??
-TransformerWordBreakerTest          ??
+TransformerEzafePredictorTest       ??  /
+TransformerLTSTest                  ??    /
+TransformerWordBreakerTest          ??   /
 TrieTreeTest                        ??
 TTSTNTransducerTest                 ??  编译不过
-UnitLatticeGenerationTest
+UnitLatticeGenerationTest               Pass; enable copyfile ..
 unitselectionTest                   ??
 UtteranceDocumentTest               ??
 vocoderTest                         ?? wei
 wavegenerationTest                  ??
 wordbreakerTest
-wordlistTest                        ??
+wordlistTest                        ??  
 
 xudong added succeed 26 ,UnitLatticeGeneration failed;
 xudong多加了emotion MultiFont NusLongUnitRuntime NgramTrie PersonNameNE sapiengine里的cmakelists

@@ -1,5 +1,8 @@
 # Questions
 没法remove掉
+temp:BoundaryToneTagger里面加了一段；xwin.cpp deletefile加了 printf(strerror(errno));
+baseclass.cpp 改了 open
+
 
 xwin.cpp 
 copyfile deletefile movefile； OK

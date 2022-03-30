@@ -100,6 +100,8 @@ UTest 名称与哪相同？文件夹还是cpp？
 
 3.28 改BoundaryToneTagger,为啥没有backup？；the NIO stop latency issue ,test, Guangyu解决了
 3.29 BoundaryToneTagger,CopyFileW改了，remove不行；xwin.cpp deletefile加了errno; after get default engine, cannot remove 1033.BRK; 
+3.30 debug CustomerTN, .dat不对，但用shenzhouDataDrop就过了； 
+Jinzhu said: 查为啥输出utf16,输出utf8，两边都用xwin。
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
