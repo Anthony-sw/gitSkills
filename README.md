@@ -2,6 +2,12 @@
 没法remove掉
 temp:BoundaryToneTagger里面加了一段；xwin.cpp deletefile加了 printf(strerror(errno));
 baseclass.cpp 改了 open
+WCHAR* pwzString[] = { L"I love bugs" };
+    _wfopen_s(&pFiletwo, _T("./testdata/BoundaryToneTagger/123.xml"), _T("wb,ccs=UTF-8"));
+    fwprintf(pFiletwo, _T("%s\r\n"), pwzString);
+    fclose(pFiletwo);
+
+xmldom-libxml2.cpp 改了get_xml；没改
 
 
 xwin.cpp 

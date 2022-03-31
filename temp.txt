@@ -102,6 +102,9 @@ UTest 名称与哪相同？文件夹还是cpp？
 3.29 BoundaryToneTagger,CopyFileW改了，remove不行；xwin.cpp deletefile加了errno; after get default engine, cannot remove 1033.BRK; 
 3.30 debug CustomerTN, .dat不对，但用shenzhouDataDrop就过了； 
 Jinzhu said: 查为啥输出utf16,输出utf8，两边都用xwin。
+3.31 libxml里面的utf格式名称：D:\origin\TextToSpeechMain\external\libxml2\encoding.c 1432行左右；BoundaryToneTagger的multiDoc.Load 调用外部库的libxml的xmlReadFile；
+找了一天没找到为啥输出actual是utf16的？？不应该是utf8了吗
+
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
