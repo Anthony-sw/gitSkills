@@ -56,7 +56,6 @@ https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain/pullrequest/26
 https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/ci/Funcational-Rolling-Test.yml Windows平台的pipeline
 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12421&view=Tab_Tasks Linux平台的pipeline
 https://msasg.visualstudio.com/TextToSpeech/_git/PortableTTSTestDrop?path=/utest/testdata UTest的data
-旧版pipeline样例 https://msasg.visualstudio.com/TextToSpeech/_apps/hub/ms.vss-ciworkflow.build-ci-hub?_a=edit-build-definition&id=12284
 怎样调试UTest: Debug - xxx Debug Properties - Debugging - Working directory 改为.exe所在的目录 
 改了 ！！！D:\origin\TextToSpeechMain\SpeechXWindows\private\dev\xwindows\xwin.cpp 中的copyfile deletefile movefile，UnitLatticeGeneration通过
 	加了xwin.cpp 中 GetTempFileName函数； BoundaryToneTaggerTest 编译过
@@ -103,7 +102,10 @@ UTest 名称与哪相同？文件夹还是cpp？
 3.30 debug CustomerTN, .dat不对，但用shenzhouDataDrop就过了； 
 Jinzhu said: 查为啥输出utf16,输出utf8，两边都用xwin。
 3.31 libxml里面的utf格式名称：D:\origin\TextToSpeechMain\external\libxml2\encoding.c 1432行左右；BoundaryToneTagger的multiDoc.Load 调用外部库的libxml的xmlReadFile；
-找了一天没找到为啥输出actual是utf16的？？不应该是utf8了吗
+找了一天没找到为啥输出actual是utf16的？？不应该是utf8了吗;
+4.1 找到了，BoundaryToneTagger的输出是utf16，因为baseclass.cpp里open函数里，_wfopen_s(&pFile, pwzFile, _T("wb,ccs=UTF-8")),已经是rb了，ccs设置无效了；
+linux 编译UT没过； 自己写个新的.c没有头文件跑不成
+4.2 build linux UT; update SDK for NIO; BoundaryToneTagger可以生成utf8，那prgate不就挂了？；baseclass改了CustomerTN直接过； 看vocoder；
 
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
