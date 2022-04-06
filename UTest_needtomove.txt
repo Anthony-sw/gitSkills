@@ -9,7 +9,7 @@ codectest                           ?? case00: CompareBinaryFile lsp文件；
 CompoundWordBreakerTest             ?? Pass;
 CRFDecoderTest
 CRFEmphasisTaggerTest               ??  GetEngine 抛出异常
-CustomerTNTest                      ??  pass ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass;
+CustomerTNTest                      ??  pass ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass; baseclass改了open直接过
 DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
 EmotionalNUSTest                    ??

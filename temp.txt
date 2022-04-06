@@ -107,6 +107,9 @@ Jinzhu said: 查为啥输出utf16,输出utf8，两边都用xwin。
 linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.2 build linux UT; update SDK for NIO; BoundaryToneTagger可以生成utf8，那prgate不就挂了？；baseclass改了CustomerTN直接过； 看vocoder；
 
+4.6 git sparse没搞懂；debug vocoder; build linux UT: 1.linux build:cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
+
+
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
