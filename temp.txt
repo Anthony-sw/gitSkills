@@ -108,8 +108,9 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.2 build linux UT; update SDK for NIO; BoundaryToneTagger可以生成utf8，那prgate不就挂了？；baseclass改了CustomerTN直接过； 看vocoder；
 
 4.6 git sparse没搞懂；debug vocoder; build linux UT: 1.linux build:cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
+4.7 查 改了baseclass，prgate不过的问题：PolyphonyHandling； 看标贝的 offlineTTS
 
-
+标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 

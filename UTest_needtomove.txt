@@ -31,7 +31,7 @@ lspnetTest
 lspweightcalculationTest
 LwHuffTest
 MandarinLochandTest                 ??  pass; 两个CompareTextFile
-MarianPolyphoneTest                 ??
+MarianPolyphoneTest                 ??  runUT没有？？？？？？？？？？？？？？？？？？
 metadataoutputTest                  ??
 MixLingualTest                      ??
 MSTTSTest                           !!!!!
@@ -70,7 +70,7 @@ TrieTreeTest                        ??
 TTSTNTransducerTest                 ??  编译不过
 UnitLatticeGenerationTest               Pass; enable copyfile ..
 unitselectionTest                   ??
-UtteranceDocumentTest               ??
+UtteranceDocumentTest               ??  runUT没有？？？？？？？？？？？？？？？？？？？？？
 vocoderTest                         ?? wei
 wavegenerationTest                  ??
 wordbreakerTest
