@@ -8,7 +8,7 @@ BoundaryToneTaggerTest              ?? pass; 解决：编译；CompareTextFile�
 codectest                           ?? case00: CompareBinaryFile lsp文件；
 CompoundWordBreakerTest             ?? Pass;
 CRFDecoderTest
-CRFEmphasisTaggerTest               ??  GetEngine 抛出异常
+CRFEmphasisTaggerTest               ??  pass; 之前GetEngine 抛出异常， 改baseclass后直接过；
 CustomerTNTest                      ??  pass ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass; baseclass改了open直接过
 DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
@@ -25,32 +25,32 @@ JapaneseLochandTest                 ??  pass; 一个CompareTextFile
 KoreanLochandTest                   ??
 LangIdentifierTest
 lexiconTest
-linguisticprosodytaggerTest         ??
+linguisticprosodytaggerTest         ?? pass; 改baseclass后直接过；
 LowResourceFrontendTest             ??
 lspnetTest
 lspweightcalculationTest
 LwHuffTest
 MandarinLochandTest                 ??  pass; 两个CompareTextFile
-MarianPolyphoneTest                 ??  runUT没有？？？？？？？？？？？？？？？？？？
+MarianPolyphoneTest                 ??  fail ;runUT没有？？？？？？？？？？？？？？？？？？
 metadataoutputTest                  ??
 MixLingualTest                      ??
 MSTTSTest                           !!!!!
 MultiWaveInventoryTest
 NeuralCRFWordBreakerTest            ??
 nGramTest                           ??
-NoStandardWordHandlingTest          ??
-nuspsruntimeTest                    ??
-nusruntimeTest                      ??
+NoStandardWordHandlingTest          ?? pass; 改baseclass后直接过；
+nuspsruntimeTest                    ??  pass; 改baseclass后直接过；
+nusruntimeTest                      ??   pass; 改baseclass后直接过；
 PitchAccentTest
 PolyphonyHandlingTest               ??
-PolyphonyModelPronunciationCheckerTest  ??
-polyphonyTest                       ??
+PolyphonyModelPronunciationCheckerTest  ??  pass; 改baseclass后直接过；
+polyphonyTest                       ??  pass; 改baseclass后直接过；
 postaggertest
 PostWordBreakerHelperTest
 prontest                            ??
 ProsodyTemplateTest                 ??
-PsolaTest                           ??
-PureDigitClassifierTest             ??
+PsolaTest                           ??   pass; 改baseclass后直接过；
+PureDigitClassifierTest             ??   pass; 改baseclass后直接过；
 RNNLPTTest                          ??
 RNNLTSTest                          ??
 RNNPolyphoneTest                    ??
@@ -58,7 +58,7 @@ RNNPOSTest                          ??
 rulerTest
 RussianLochandTest
 ScalableRUSNUSTest                  ??
-SentAndPuncDetectionTest            ??
+SentAndPuncDetectionTest            ??  pass; 改baseclass后直接过；
 sentsepTest
 SPSworldSynthesisTest
 TaskQueueTest
@@ -66,32 +66,25 @@ textanalyzertest                    ??
 TransformerEzafePredictorTest       ??  /
 TransformerLTSTest                  ??    /
 TransformerWordBreakerTest          ??   /
-TrieTreeTest                        ??
+TrieTreeTest                        ??   pass; 改baseclass后直接过；
 TTSTNTransducerTest                 ??  编译不过
 UnitLatticeGenerationTest               Pass; enable copyfile ..
 unitselectionTest                   ??
 UtteranceDocumentTest               ??  runUT没有？？？？？？？？？？？？？？？？？？？？？
 vocoderTest                         ?? wei
 wavegenerationTest                  ??
-wordbreakerTest
-wordlistTest                        ??  
+wordbreakerTest                          改了之后不过了？？？
+wordlistTest                        ??    pass; 改baseclass后直接过；
 
 xudong added succeed 26 ,UnitLatticeGeneration failed;
 xudong多加了emotion MultiFont NusLongUnitRuntime NgramTrie PersonNameNE sapiengine里的cmakelists
 
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/acousticprosodytagger utest/acousticprosodytagger)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/AcronymHandling utest/AcronymHandling)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/baseclass utest/baseclass)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMPolyphony utest/BLSTMPolyphony)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMProsodyBreaker utest/BLSTMProsodyBreaker)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMWordBreaker utest/BLSTMWordBreaker)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BoundaryToneTagger utest/BoundaryToneTagger)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/codec utest/codec)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CompoundWordBreaker utest/CompoundWordBreaker)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFDecoder utest/CRFDecoder)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFEmphasisTagger utest/CRFEmphasisTagger)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CustomerTN utest/CustomerTN)
-   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DNNDecoder utest/DNNDecoder)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/DomainMapping utest/DomainMapping)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/engineadapter utest/engineadapter)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/EnhancedSSML utest/EnhancedSSML)
@@ -113,5 +106,4 @@ xudong多加了emotion MultiFont NusLongUnitRuntime NgramTrie PersonNameNE sapie
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/TaskQueue utest/TaskQueue)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/UnitLatticeGeneration utest/UnitLatticeGeneration)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/wordbreaker utest/wordbreaker)
-endif()
 
