@@ -109,6 +109,9 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 
 4.6 git sparse没搞懂；debug vocoder; build linux UT: 1.linux build:cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
 4.7 查 改了baseclass，prgate不过的问题：PolyphonyHandling； 看标贝的 offlineTTS
+4.8 发pr，baseclass过了；看标贝
+
+4.11 repro NIO stop30ms卡死 ; 改pr,通过prgate; 抓标贝的 first、rtf,没成功，java不会写; 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
@@ -120,64 +123,14 @@ set(RepoRoot /D/temp/TextToSpeechMain)
 message(STATUS "????RepoRoot=${RepoRoot}")
 
 
-//改过的xwin.cpp,3.8
-#ifdef __GNUC__
-#include <unistd.h> //int access(const char *filenpath, int mode)
-#elif _MSC_VER
-#include<io.h>  // int _access( const char *path, int mode ) 
-#endif 
-WINBASEAPI
-BOOL
-WINAPI
-CopyFileW(
-	_In_ LPCWSTR lpExistingFileName,
-	_In_ LPCWSTR lpNewFileName,
-	_In_ BOOL bFailIfExists
-)
-{
-	try
-	{
-		char cNewFileName[MAX_PATH];
-		memset(cNewFileName, 0, MAX_PATH);
-		int nBytes = WideCharToMultiByte(CP_UTF8, 0, lpNewFileName, wcslen(lpNewFileName), cNewFileName, MAX_PATH, NULL, NULL);
-		cNewFileName[nBytes] = 0;
-
-		char cExistingFileName[MAX_PATH];
-		memset(cExistingFileName, 0, MAX_PATH);
-		nBytes = WideCharToMultiByte(CP_UTF8, 0, lpExistingFileName, wcslen(lpExistingFileName), cExistingFileName, MAX_PATH, NULL, NULL);
-		cExistingFileName[nBytes] = 0;
-
-        #ifdef __GNUC__
-        if (bFailIfExists && access(cNewFileName, 0))
-        {
-            return FALSE;
-        }
-        #elif _MSC_VER
-        if (bFailIfExists && _access(cNewFileName, 0))
-        {
-            return FALSE;
-        }
-        #endif 
-		
-		FILE *fp1;
-		fp1 = fopen(cExistingFileName, "r");
-		FILE *fp2;
-		fp2 = fopen(cNewFileName, "w");
-
-		char buff[1024] = { '\0' };
-		int count = 0;
-		while ((count = fread(buff, 1, 1024, fp1)) != 0)
-		{
-			fwrite(buff, 1, count, fp2);
-		}
-
-		fclose(fp1);
-		fclose(fp2);
-
-		return TRUE;
-	}
-	catch (...)
-	{
-		return FALSE;
-	}
-}
+//BoundaryToneTagger的没法backup的问题
+if (fExisted)
+    {
+        fileBackupHelper.Backup();
+        //FILE* fp1;
+        //fp1 = fopen("./testdata/RUSVoiceFont/1033.BRK", "rb");
+        //fclose(fp1);
+        //if(remove("./testdata/RUSVoiceFont/1033.BRK")==0)
+        //    printf("Wooo");
+        DeleteFile(brkfilename);
+    }
