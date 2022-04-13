@@ -82,6 +82,7 @@
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMProsodyBreaker utest/BLSTMProsodyBreaker)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BLSTMWordBreaker utest/BLSTMWordBreaker)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/BoundaryToneTagger utest/BoundaryToneTagger)
+   add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CompoundWordBreaker utest/CompoundWordBreaker)   
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFDecoder utest/CRFDecoder)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CRFEmphasisTagger utest/CRFEmphasisTagger)
    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../../utest/CustomerTN utest/CustomerTN)   

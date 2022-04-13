@@ -28,6 +28,9 @@ HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Cust
 
 GWM的repo地址： https://speechoutput.visualstudio.com/_git/Customer_GWM
 
+#git
+1.查看远程分支对应： git branch -va
+
 #Build TTS Reader:
 1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
 2.TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为新版本
@@ -111,7 +114,9 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.7 查 改了baseclass，prgate不过的问题：PolyphonyHandling； 看标贝的 offlineTTS
 4.8 发pr，baseclass过了；看标贝
 
-4.11 repro NIO stop30ms卡死 ; 改pr,通过prgate; 抓标贝的 first、rtf,没成功，java不会写; 
+4.11 repro NIO stop30ms卡死 ; 改pr,改compoundwordbreaker通过prgate; 抓标贝的 first、rtf,没成功，java不会写; 
+4.12 改pr，规范代码，重构cmakelists,没重构好; try to dump 标贝,成功dump raw data;
+4.13 重构cmakelists,很花时间但没成功；抓标贝的wav和log；
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 

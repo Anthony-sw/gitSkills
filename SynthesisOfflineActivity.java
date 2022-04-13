@@ -25,6 +25,7 @@ import com.baker.tts.mix.lib.callback.SynthesizerMixMediaCallback;
 
 import java.io.Closeable;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -101,6 +102,17 @@ public class SynthesisOfflineActivity extends BakerBaseActivity {
         }
     };
 
+    private String strOutFileName = "/storage/emulated/0/00Baker/output";
+    OutputStream ops;
+    {
+        try {
+            ops = new FileOutputStream(strOutFileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private SynthesisMixCallback synthesisMixCallback = new SynthesisMixCallback() {
         long time2=0;
         @Override
@@ -122,13 +134,13 @@ public class SynthesisOfflineActivity extends BakerBaseActivity {
             Log.d("bakkk", "tts离线Latency: " +  (System.currentTimeMillis()-time2));
             HLogger.e("--onBinaryReceived--, endFlag = " + endFlag + ", interval_x" + interval_x);
 
-            String strOutFileName = "/storage/emulated/0/Download/tts/output.pcm";
-            File file = new File(strOutFileName);
-            OutputStream ops = null;
             try {
-                ops = new FileOutputStream(strOutFileName);
                 ops.write(data);
                 Log.d("bakkk", "tts写文件: " +  System.currentTimeMillis());
+                if(endFlag)
+                {
+                    ops.close();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
