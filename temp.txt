@@ -118,6 +118,7 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.12 改pr，规范代码，重构cmakelists,没重构好; try to dump 标贝,成功dump raw data;
 4.13 重构cmakelists,很花时间但没成功；抓标贝的wav和log；
 4.14 成功重构cmakelists；标贝更新github，抓firstbyteLatency;我们的xiaoxiaoV5,fbl 126 127 124 127,rtf 0.1673 0.1665 0.1684 0.1706;
+标贝 短句：22 0.5032；40 0.5297；长句 34 0.4812；36 0.48；
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
