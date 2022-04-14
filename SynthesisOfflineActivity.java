@@ -102,7 +102,7 @@ public class SynthesisOfflineActivity extends BakerBaseActivity {
         }
     };
 
-    private String strOutFileName = "/storage/emulated/0/00Baker/output";
+    private String strOutFileName = "/storage/emulated/0/00Baker/output_haha_1";
     OutputStream ops;
     {
         try {
