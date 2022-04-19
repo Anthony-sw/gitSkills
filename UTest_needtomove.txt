@@ -4,33 +4,33 @@ baseclasstest
 BLSTMPolyphonyTest
 BLSTMProsodyBreakerTest
 BLSTMWordBreakerTest
-BoundaryToneTaggerTest              ?? pass; 解决：编译；CompareTextFile；  linux不对，加backup的文件
-codectest                           ?? case00: CompareBinaryFile lsp文件；
-CompoundWordBreakerTest             ?? Pass;
+BoundaryToneTaggerTest              ?? CHECKIN; pass; 解决：编译；CompareTextFile；  linux不对，加backup的文件
+codectest                           ?? pass; \r\n 在linux和windows下解释不同；
+CompoundWordBreakerTest             ?? CHECKIN;Pass;
 CRFDecoderTest
-CRFEmphasisTaggerTest               ??  pass; 之前GetEngine 抛出异常， 改baseclass后直接过；
-CustomerTNTest                      ??  pass; ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass; baseclass改了open直接过
+CRFEmphasisTaggerTest               ??  CHECKIN;pass; 之前GetEngine 抛出异常， 改baseclass后直接过；
+CustomerTNTest                      ??  CHECKIN;pass; ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass; baseclass改了open直接过
 DNNDecoderTest                      ??  2 failed : CompareBinaryFile
 DomainMappingTest
-EmotionalNUSTest                    ??
+EmotionalNUSTest                    ??  pass; .cpp 里的fopen；
 engineadapterTest
 enhancedSSMLTest
-FeatureExtractionTest               ??  pass ; 两个CompareTextFile
+FeatureExtractionTest               ??  CHECKIN;pass ; 两个CompareTextFile
 foreignwordsTest                    ??
 frameworktest
 FrenchLiaisonTest                   ??
 HTSVoiceDataTest                    ??  编译不过
 ispenginepronunciationTest
-JapaneseLochandTest                 ??  pass; 一个CompareTextFile
+JapaneseLochandTest                 ??  CHECKIN;pass; 一个CompareTextFile
 KoreanLochandTest                   ??
 LangIdentifierTest
 lexiconTest
-linguisticprosodytaggerTest         ?? pass; 改baseclass后直接过；
+linguisticprosodytaggerTest         ??  CHECKIN;pass; 改baseclass后直接过；
 LowResourceFrontendTest             ??
 lspnetTest
 lspweightcalculationTest
 LwHuffTest
-MandarinLochandTest                 ??  pass; 两个CompareTextFile
+MandarinLochandTest                 ??  CHECKIN;pass; 两个CompareTextFile
 MarianPolyphoneTest                 ??  fail ;runUT没有？？？？？？？？？？？？？？？？？？
 metadataoutputTest                  ??
 MixLingualTest                      ??
@@ -68,7 +68,7 @@ TransformerLTSTest                  ??    /
 TransformerWordBreakerTest          ??   /
 TrieTreeTest                        ??   pass; 改baseclass后直接过；
 TTSTNTransducerTest                 ??  编译不过
-UnitLatticeGenerationTest               Pass; enable copyfile ..
+UnitLatticeGenerationTest               CHECKIN; Pass; enable copyfile ..
 unitselectionTest                   ??
 UtteranceDocumentTest               ??  runUT没有？？？？？？？？？？？？？？？？？？？？？
 vocoderTest                         ?? wei
