@@ -127,6 +127,9 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.18 debug UT: codec pass,换行在linux和windows不同; acoustic没有；
 4.19 debug acoustic; 写月task;
 问Cindy：git sparse？
+4.20 在家摸鱼一天；看forignwordTest;
+WCHAR actual_pron[TTS_MAX_PRON_LENGTH] = {NULL};
+        wcscpy_s(actual_pron, pWord->GetPron());
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa

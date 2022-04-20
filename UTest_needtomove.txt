@@ -10,7 +10,7 @@ CompoundWordBreakerTest             ?? CHECKIN;Pass;
 CRFDecoderTest
 CRFEmphasisTaggerTest               ??  CHECKIN;pass; 之前GetEngine 抛出异常， 改baseclass后直接过；
 CustomerTNTest                      ??  CHECKIN;pass; ??  open .dat 文件不是utf16的所以报错；换成shenzhou的testdata可以pass; baseclass改了open直接过
-DNNDecoderTest                      ??  2 failed : CompareBinaryFile
+DNNDecoderTest                      ??  2 failed : CompareBinaryFile 似乎跟acousticprosodytaggerTest一样的wav问题；
 DomainMappingTest
 EmotionalNUSTest                    ??  pass; .cpp 里的fopen；
 engineadapterTest
