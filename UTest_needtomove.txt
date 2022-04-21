@@ -16,7 +16,7 @@ EmotionalNUSTest                    ??  pass; .cpp 里的fopen；
 engineadapterTest
 enhancedSSMLTest
 FeatureExtractionTest               ??  CHECKIN;pass ; 两个CompareTextFile
-foreignwordsTest                    ??
+foreignwordsTest                    ??  pron不一样；怀疑跟acoustic有关
 frameworktest
 FrenchLiaisonTest                   ??
 HTSVoiceDataTest                    ??  编译不过
