@@ -19,7 +19,7 @@ FeatureExtractionTest               ??  CHECKIN;pass ; 两个CompareTextFile
 foreignwordsTest                    ??  pron不一样；怀疑跟acoustic有关
 frameworktest
 FrenchLiaisonTest                   ??
-HTSVoiceDataTest                    ??  编译不过
+HTSVoiceDataTest                    ??  pass; 编译不过: 是cmake里面旭东写的有问题，我也没看仔细...
 ispenginepronunciationTest
 JapaneseLochandTest                 ??  CHECKIN;pass; 一个CompareTextFile
 KoreanLochandTest                   ??

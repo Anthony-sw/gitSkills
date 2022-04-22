@@ -48,6 +48,11 @@ GWM的repo地址： https://speechoutput.visualstudio.com/_git/Customer_GWM
 #Android studio 改java jdk版本，file - project structure - sdk location最下面jdk location;
 1.sample 新老版本注意 EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath); 老版本没有这句
 
+#build linux UT,cmake: 
+1.linux build cmake :cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
+2.linux utest cmake :-DCMAKE_BUILD_TYPE=Debug -DBUILD64=1 CMakeLists.txt
+3.需要在onnx里面加 MS.TTS.NeuralTTS.ONNXLib.(在artifact- TextToSpeech里搜一下)
+
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
@@ -114,7 +119,6 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.2 build linux UT; update SDK for NIO; BoundaryToneTagger可以生成utf8，那prgate不就挂了？；baseclass改了CustomerTN直接过； 看vocoder；
 
 4.6 git sparse没搞懂；debug vocoder; 
-#build linux UT: 1.linux build:cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
 4.7 查 改了baseclass，prgate不过的问题：PolyphonyHandling； 看标贝的 offlineTTS
 4.8 发pr，baseclass过了；看标贝
 
@@ -130,6 +134,7 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 问Cindy：git sparse？
 4.20 在家摸鱼一天；看forignwordTest;
 4.21 看functionalTest.cpp 里的stop函数；新加了几个UT，应该都是acoustic问题；
+4.22 HTSVoiceData pass; build Linux UT成；repro NIO 儿化音 crash；ttsTN编译不过 重定义，没搞懂；看pthread
 
 
 
