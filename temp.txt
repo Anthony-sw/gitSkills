@@ -28,11 +28,14 @@ HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Cust
 
 GWM的repo地址： https://speechoutput.visualstudio.com/_git/Customer_GWM
 
+large corpus for every language:https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TTSTestLargeCorpus
+
 #v-dongyueli tokens：https://dev.azure.com/corext/_usersSettings/tokens
 
 #git
 1.查看远程分支对应： git branch -va 或 -vv;
 2.清除远程已删除本地还在的多余分支  git fetch -p
+3.上传lfs的大文件文件出client error: git config http.version HTTP/1.1 
 
 #Build TTS Reader:
 1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
@@ -136,7 +139,8 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.21 看functionalTest.cpp 里的stop函数；新加了几个UT，应该都是acoustic问题；
 4.22 HTSVoiceData pass; build Linux UT成；repro NIO 儿化音 crash；ttsTN编译不过 重定义，没搞懂；看pthread
 
-
+4.23 上传TTSTestLargeCorpus；改functionalTest.cpp 里的stop函数
+学习下java future？.git为什么大？
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
@@ -145,8 +149,25 @@ cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 ../private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake -B.
 
-set(RepoRoot /D/temp/TextToSpeechMain)
-message(STATUS "????RepoRoot=${RepoRoot}")
+void* TestStop(void* pIMSSpeechSynthesize)
+{
+#ifdef __GNUC__
+	usleep(500000);
+#else
+    Sleep(1000);
+#endif
+
+    ((IMSSpeechSynthesize*)pIMSSpeechSynthesize)->Stop();
+	//pthread_exit(NULL);
+	return NULL;
+}
+pthread_t thread;
+    pthread_create(&thread, NULL, TestStop, NULL);
+
+    UTF_VERIFY_HR(SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText, 
+        string("a0Function.cpp.normal.string.wav"), TestConfig.NormalStringPath));
+
+    pthread_join(thread, NULL);
 
 WCHAR actual_pron[TTS_MAX_PRON_LENGTH] = {NULL};
         wcscpy_s(actual_pron, pWord->GetPron());
