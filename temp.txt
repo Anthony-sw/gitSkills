@@ -149,27 +149,39 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
 
+As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
+1.	We need to test the stop on random timing:
+a.	Ensure stop really works: verified through output audio and event.
+b.	Ensure no error: check return value, no hanging happen.
+c.	Ensure the next speak after stop is success and output is expected.
+2.	We need to test the stop on different input:
+a.	Using different prosody tag with different pitch, rate and volume.
+b.	Ensure the next speak after stop is success and output is expected.
+
+
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 ../private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake -B.
 
 void* TestStop(void* pIMSSpeechSynthesize)
 {
-#ifdef __GNUC__
-	usleep(500000);
-#else
-    Sleep(1500);
-    printf("wake up\n");
-#endif
     srand((unsigned int)time(0));
-    unsigned int sleep_time = rand() % 2000 + 1;
-    int i = 0;
-    i = ((IMSSpeechSynthesize*)pIMSSpeechSynthesize)->Stop();
-   
-    printf("i=%d\n",i);
+    unsigned int sleep_length = rand() % 2000 + 1;
+#ifdef __GNUC__
+	sleep(sleep_length);
+#else
+    Sleep(sleep_length);
+    printf("sleep for %d ms\n", sleep_length);
+#endif
+    HRESULT hr = S_OK;
+    hr = ((IMSSpeechSynthesize*)pIMSSpeechSynthesize)->Stop();
+    UTF_VERIFY_HR(hr);
+ 
 	pthread_exit(NULL);
-	return NULL;
+    
+    return NULL;
 }
+
 pthread_t thread;
     int error = 1;
     error = pthread_create(&thread, NULL, TestStop, (void*)pIMSSpeechSynthesize);
