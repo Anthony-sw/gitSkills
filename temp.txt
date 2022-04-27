@@ -17,7 +17,6 @@ https://www.zhihu.com/question/444825341 java学习路径
 
 整个build的pipeline   https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain?path=/ci/azure-pipelines.yml
 
-adb shell，Android系统的shell,待学习；
 
 carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildId=27087930&view=artifacts&pathAsName=false&type=publishedArtifacts
                   D:\Carbon\ci\build-windows.yml
@@ -136,7 +135,7 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.18 debug UT: codec pass,换行在linux和windows不同; acoustic没有；
 4.19 debug acoustic; 写月task;
 问Cindy：git sparse？
-4.20 在家摸鱼一天；看forignwordTest;
+4.20 在家moyu；看forignwordTest;
 4.21 看functionalTest.cpp 里的stop函数；新加了几个UT，应该都是acoustic问题；
 4.22 HTSVoiceData pass; build Linux UT成；repro NIO 儿化音 crash；ttsTN编译不过 重定义，没搞懂；看pthread
 
@@ -145,7 +144,7 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.25 test new small zhcn_model for NIO in large corpus; fbl 68ms;rtf 0.0417 disable throttling;9200字perf 28min左右；
 第二次：fbl 75ms;rtf 0.0381;10349字；33min；测试、更新BYD;
 4.26 functionalTest：stop; NIO小model首包延迟大问题;xiaoxiao:40ms 0.7129| 37ms 0.7021  ;chanfei:0.39 0.7374| 0.37 0.7341
-学adb，top命令查看cpu使用情况？
+4.27 1.19实验小model：Xiaoxiao：57ms 0.7096; 49ms 0.7117; Chanfei:54ms 0.7707;46ms 0.7651; 看adb;
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
@@ -186,7 +185,7 @@ pthread_t thread;
     int i = 10;
     UTF_VERIFY_HR(i);
 
-    
+
 WCHAR actual_pron[TTS_MAX_PRON_LENGTH] = {NULL};
         wcscpy_s(actual_pron, pWord->GetPron());
 

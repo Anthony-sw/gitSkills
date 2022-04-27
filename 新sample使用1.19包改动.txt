@@ -1,0 +1,22 @@
+build.gradle 加了三行
+def appCenterSdkVersion = '4.2.0'
+implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+改了arr包 'client-sdk-embedded-1.19.0-alpha.0.25104180-1.aar'
+
+改过SpeechSDKExceptionHandler.java 注释掉一行
+//        mContext.dumpLog("crash.log");
+
+200行
+注释掉//EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath);
+
+接口改动：
+if (spinner.getSelectedItemId() == 1) {
+                speechConfig.setProperty(PropertyId.SpeechServiceConnection_SynthBackendSwitchingPolicy, "parallel_buffer");
+                int timeout = timeoutBar.getProgress();
+                speechConfig.setProperty(PropertyId.SpeechServiceConnection_SynthBackendFallbackBufferTimeoutMs, String.valueOf(timeout));
+                speechConfig.setProperty(PropertyId.SpeechServiceConnection_SynthBackendFallbackBufferLengthMs, "200");
+            } else {
+                speechConfig.setProperty(PropertyId.SpeechServiceConnection_SynthBackendSwitchingPolicy, "force_offline");
+                
+synthesizer = new SpeechSynthesizer(getApplication(), speechConfig, null);
