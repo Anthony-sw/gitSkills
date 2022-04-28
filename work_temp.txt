@@ -1,0 +1,14 @@
+4.27 1.19arr实验小model：Xiaoxiao：57ms 0.7096; 49ms 0.7117; Chanfei:54ms 0.7707;46ms 0.7651;
+
+4.28 IMSSpeechSynthesize IMS?
+
+
+As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
+1.	We need to test the stop on random timing:
+a.	Ensure stop really works: verified through output audio and event.
+b.	Ensure no error: check return value, no hanging happen.
+c.	Ensure the next speak after stop is success and output is expected.
+2.	We need to test the stop on different input:
+a.	Using different prosody tag with different pitch, rate and volume.
+b.	Ensure the next speak after stop is success and output is expected.
+
