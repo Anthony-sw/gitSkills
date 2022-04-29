@@ -8,7 +8,9 @@ implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}
 //        mContext.dumpLog("crash.log");
 
 200行
-注释掉//EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath);
+注释掉
+//EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath);
+//import com.microsoft.cognitiveservices.speech.EmbeddedSpeechConfig;
 
 接口改动：
 if (spinner.getSelectedItemId() == 1) {

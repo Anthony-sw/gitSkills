@@ -23,6 +23,7 @@ carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildI
 
 NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 BYD的：https://speechoutput.visualstudio.com/Customer_BYD/_git/Customer_BYD?path=%2F&version=GBrelease%2F20220426&_a=contents
+Lixiang的：https://speechoutput.visualstudio.com/_git/Customer_Lixiang 没权限
 
 HH的repo地址：https://speechoutput.visualstudio.com/Customer_HiPhi/_git/Customer_HiPhi
 
@@ -148,8 +149,9 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 4.26 functionalTest：stop; NIO小model首包延迟大问题;xiaoxiao:40ms 0.7129| 37ms 0.7021  ;chanfei:0.39 0.7374| 0.37 0.7341
 4.27 1.19arr实验小model：Xiaoxiao：57ms 0.7096; 49ms 0.7117; Chanfei:54ms 0.7707;46ms 0.7651; 看adb; moyu一下午;
 4.28 验证lixiang离在线font设置不一致可以？可以；测试BYD声音切离线变小？可以font里.ini设置； 写functional.cpp stop;
-手机里xiaoxiaodevice改了.ini的VolumeAdjustment；NIO的chanfei首包延迟大没repro？？
+手机里xiaoxiaodevice改了.ini的VolumeAdjustment；NIO的chanfei小模型首包延迟大没repro？？
 学习windows 批处理程序；
+4.29 update hongqi repo; verification on Lixiang fix; add functional_stop code; read code in functionalTest;
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
@@ -194,13 +196,14 @@ void* TestStop(void* pIMSSpeechSynthesize)
     pthread_t thread;
 	int error = 1;
     CTTSString outputFileName;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		error = pthread_create(&thread, NULL, TestStop, (void*)pIMSSpeechSynthesize);
+		error = pthread_create(&thread, NULL, TestStopInRandom, (void*)pIMSSpeechSynthesize);
 		if (error != 0)
 		{
 			printf("Error:unable to create thread");
 		}
+
         char pBuffer[GENERAL_BUFFER_SIZE];
         sprintf(pBuffer, "Functional.cpp.stop.Long.No%d.wav", i);
 		UTF_VERIFY_HR(SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText,
@@ -208,8 +211,18 @@ void* TestStop(void* pIMSSpeechSynthesize)
         outputFileName.AppendAHR(pBuffer);
         ULONG64 sizeStopRandom = GetFileSize(outputFileName);
         UTF_VERIFY(sizeStopRandom< sizebaseline);
+        outputFileName.Clear();
 
 		pthread_join(thread, NULL);
+
+        //confirm the next speak 
+        sprintf(pBuffer, "Functional.cpp.stop.Long.No%d.confirm.wav", i);
+        UTF_VERIFY_HR(SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText,
+            string(pBuffer), TestConfig.LongStringPath));
+        outputFileName.AppendAHR(pBuffer);
+        ULONG64 sizeStopRandomConfirm = GetFileSize(outputFileName);
+        UTF_VERIFY(sizeStopRandomConfirm == sizebaseline);
+        outputFileName.Clear();
 	}
     
 
