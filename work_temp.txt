@@ -2,7 +2,7 @@
 
 4.28 IMSSpeechSynthesize IMS?
 
-Hongqi repo has been updated to the latest. 
+
 
 As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
 1.	We need to test the stop on random timing:

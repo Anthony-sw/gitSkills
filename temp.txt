@@ -153,8 +153,11 @@ linux 编译UT没过； 自己写个新的.c没有头文件跑不成
 学习windows 批处理程序；
 4.29 update hongqi repo; verification on Lixiang fix; add functional_stop code; read code in functionalTest;
 
+5.5 test new SDK1.22 for NIO high stop latency; 核酸;
+
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
+utest/textanalyzer/textanalyzertest.cpp 改过？？？
 
 As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
 1.	We need to test the stop on random timing:
