@@ -1,7 +1,32 @@
-4.27 1.19arr实验小model：Xiaoxiao：57ms 0.7096; 49ms 0.7117; Chanfei:54ms 0.7707;46ms 0.7651;
+NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
 
-4.28 IMSSpeechSynthesize IMS?
+key:5961e1d969a94727a8ef4c8a6d2bea63
 
+large corpus for every language:https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TTSTestLargeCorpus
+
+！！！以后提交pr，需要Squash commit！！！！！！！！！！！！！！！！！
+给customer更新的时候注意： Tokens.xml里面的project名字；.ini里面的throttling；
+
+http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
+
+我们的tts engine 的linux build 基于 gcc7.5 ubentu18.04
+
+Host V-ciguo
+  HostName stcvl-212
+  User v-ciguopassword
+password= Pass_word
+一台linux的虚拟机，密码Pass_word
+
+4.28 IMSSpeechSynthesize IMS? means？
+
+AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
+                    audioDataStream.saveToWavFile("/storage/emulated/0/Download/tts/microsoft.wav");
+
+ExecuteSynthesis: audio duration 结束标志
+
+carbon
+https://msasg.visualstudio.com/Skyman/_artifacts/feed/Carbon/connect/nuget.exe
+https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/external/onnx_runtime/nuget.config 加一行上面网址的carbon；
 
 
 As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
@@ -13,3 +38,9 @@ c.	Ensure the next speak after stop is success and output is expected.
 a.	Using different prosody tag with different pitch, rate and volume.
 b.	Ensure the next speak after stop is success and output is expected.
 
+git sparse？
+申请一个wifi？
+学习下java future？.git为什么大？
+学习windows 批处理程序；
+一个bug:ssml调rate不是按1%的梯度； durationpredictor.cpp852行
+未更新Carbon的更新!

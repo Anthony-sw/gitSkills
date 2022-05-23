@@ -60,7 +60,7 @@ RussianLochandTest
 ScalableRUSNUSTest                  ??
 SentAndPuncDetectionTest            ??  pass; 改baseclass后直接过；
 sentsepTest
-SPSworldSynthesisTest
+SPSworldSynthesisTest               !! release版本生产wav不对；
 TaskQueueTest
 textanalyzertest                    ??
 TransformerEzafePredictorTest       ??  /
