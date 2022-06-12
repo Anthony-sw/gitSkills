@@ -1,6 +1,10 @@
-NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
+Android sample dev key: 5961e1d969a94727a8ef4c8a6d2bea63 region:chinaeast2;
 
-key:5961e1d969a94727a8ef4c8a6d2bea63
+AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
+audioDataStream.saveToWavFile("/storage/emulated/0/Download/tts/microsoft.wav");
+
+ExecuteSynthesis: audio duration 结束标志
+
 
 large corpus for every language:https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TTSTestLargeCorpus
 
@@ -8,6 +12,12 @@ large corpus for every language:https://msasg.visualstudio.com/DefaultCollection
 给customer更新的时候注意： Tokens.xml里面的project名字；.ini里面的throttling；
 
 http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
+
+https://github.com/Azure-Samples/cognitive-services-speech-sdk  Public samples for all platforms;
+
+TTS展示页面：
+https://docs.microsoft.com/zh-cn/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp 
+https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/#overview
 
 我们的tts engine 的linux build 基于 gcc7.5 ubentu18.04
 
@@ -17,16 +27,7 @@ Host V-ciguo
 password= Pass_word
 一台linux的虚拟机，密码Pass_word
 
-4.28 IMSSpeechSynthesize IMS? means？
-
-AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
-                    audioDataStream.saveToWavFile("/storage/emulated/0/Download/tts/microsoft.wav");
-
-ExecuteSynthesis: audio duration 结束标志
-
-carbon
-https://msasg.visualstudio.com/Skyman/_artifacts/feed/Carbon/connect/nuget.exe
-https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/external/onnx_runtime/nuget.config 加一行上面网址的carbon；
+export LD_LIBRARY_PATH=../SDK/public/lib
 
 
 As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
@@ -43,4 +44,34 @@ git sparse？
 学习下java future？.git为什么大？
 学习windows 批处理程序；
 一个bug:ssml调rate不是按1%的梯度； durationpredictor.cpp852行
-未更新Carbon的更新!
+GAC更新stop的改动，devicettsrelease也更新？
+
+
+  private void stopSynthesizing() {
+        Future<Void> stopFuture = null;
+        if (synthesizer != null) {
+            stopFuture = synthesizer.StopSpeakingAsync();
+        }
+        if (audioTrack != null) {
+            synchronized (synchronizedObj) {
+                stopped = true;
+            }
+            audioTrack.pause();
+            audioTrack.flush();
+        }
+        if (stopFuture != null) {
+            try {
+                stopFuture.get();
+            } catch (Exception ex) {
+                Log.e("Speech Synthesis Demo", "exception while stopspeaking" + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+    }
+
+<speak xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xmlns:emo='http://www.w3.org/2009/10/emotionml' version='1.0' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural' style='Cheerful' rate='3%'><prosody rate='6%'>您有电话来自13752533002，接听还是挂断?</prosody></voice></speak>
+
+
+
+
+

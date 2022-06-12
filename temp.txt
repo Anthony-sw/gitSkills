@@ -1,27 +1,15 @@
-！！！！！！！！！！！！！！！！！！！！！！！
 项目地址
 https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain
 官方文档：
 https://docs.microsoft.com/zh-cn/
 https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=msvc-170 函数
-Azure Pipelines :(Yaml格式）
-https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops
-========================================================
-D盘空间 除了temp origin original 约15G
-可用的windows虚拟机 stcsrv-G64
 
-
-CoreXT的cache包：https://msasg.visualstudio.com/TextToSpeech/_git/CoreXtPkgs
+============================================================================================================================================================
 
 https://www.zhihu.com/question/444825341 java学习路径
 
-整个build的pipeline   https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain?path=/ci/azure-pipelines.yml
-
-
-carbon build参考 : https://msasg.visualstudio.com/Skyman/_build/results?buildId=27087930&view=artifacts&pathAsName=false&type=publishedArtifacts
-                  D:\Carbon\ci\build-windows.yml
-
-NIO的repo地址： https://speechoutput.visualstudio.com/_git/Customer_NIO 
+Azure Pipelines :(Yaml格式）
+https://docs.microsoft.com/zh-cn/azure/devops/pipelines/get-started/yaml-pipeline-editor?view=azure-devops
 
 large corpus for every language:https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TTSTestLargeCorpus
 
@@ -29,37 +17,69 @@ large corpus for every language:https://msasg.visualstudio.com/DefaultCollection
 
 #c++ skills: string类型 .c_str() 转为char*
 
+给customer更新的时候注意： Tokens.xml里面的project名字；.ini里面的throttling；
+
+需要看的u8编码问题：
+http://www.cplusplus.com/doc/tutorial/constants/
+
+============================================================================================================================================================
+carbon build参考 : Carbon\ci\build-windows.yml
+
+============================================================================================================================================================
 #git
 1.查看远程分支对应： git branch -va 或 -vv;
 2.清除远程已删除本地还在的多余分支  git fetch -p
-3.上传lfs的大文件文件出client error: git config http.version HTTP/1.1 
+3.上传lfs的大文件文件出client error的可能原因 : git config http.version HTTP/1.1 
 
+============================================================================================================================================================
 #Build TTS Reader:
 1.改..\TTS Reader (Carbon)\TTS Reader (Carbon)  TTS Reader (Carbon).csproj 11行v4.7.2 ;61行 "Microsoft.CognitiveServices.Speech.csharp" ;替换所有1.20.0
 2.TTS Reader (Carbon)\TTS Reader (Carbon)\packages.config 改为新版本
 3.Form1.cs 改方法名SetSpeechSynthesisVoice 第44 86行
 4.TTS Reader (Carbon)\TTS Reader (Carbon)\bin\x64\Debug 里加个Voices文件夹，加Font进去
-5.项目名右键-manage nuget..-小齿轮settings
+5.加一个nuget.config
+  https://msasg.visualstudio.com/Skyman/_artifacts/feed/Carbon/connect/nuget.exe
+  https://msasg.visualstudio.com/TextToSpeech/_git/TextToSpeechMain?path=/external/onnx_runtime/nuget.config 加一行上面网址的carbon；
 
+============================================================================================================================================================
 #Build TextToSpeechMain, cmake 
 1.TextToSpeechMain\external\onnx_runtime 加onnx包,onnx包在Artifacts里搜rnnt.onnxruntime
-2.TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake\bin\Debug 加个onnx的.dll
+2.TextToSpeechMain\private\dev\speech\tts\shenzhou\Platforms\VsBuilds\build\cmake\bin\Debug 加个onnx的dll
 3.如果是-D BUILD_TARGET=EmbeddedLegacy或embeded，Font都不能用neural的否则报错
 
+============================================================================================================================================================
 #Android studio 改java jdk版本，file - project structure - sdk location最下面jdk location;
-1.sample 新老版本注意 EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath); 老版本没有这句
-
-#Android SDK版本：不带legacy的neural和非neural都可以，带legacy只能非neural; 只有narrator和一个印度上了neural；给nio的legacy版本支持Android 6;
-我们的sample保存wav文件：AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
-                    audioDataStream.saveToWavFile("/storage/microsoft.wav");
-
-
-
+--sample 新老版本注意 EmbeddedSpeechConfig embeddedSpeechConfig = EmbeddedSpeechConfig.fromPath(yourOfflineDataPath); 老版本没有这句
+--Android SDK版本：不带legacy的neural和非neural都可以，带legacy只能非neural; 只有narrator和一个印度上了neural；给nio的legacy版本支持Android 6;
+--Android sample保存wav文件：
+  AudioDataStream audioDataStream = AudioDataStream.fromResult(result);
+  audioDataStream.saveToWavFile("/storage/microsoft.wav");
+--怎样在engine中加android logcat的log:  https://msasg.visualstudio.com/DefaultCollection/TextToSpeech/_git/TextToSpeechMain/commit/b9c78e79638b8913b008724c77f71c5563878278?refName=refs/heads/guawu/AddAndroidTrace
+      Carbon的pipeline中 carbon->Yml - Carbon Build, 生成好的libMicrosoft.CognitiveServices.Speech.extension.embedded.tts.runtime.so 替换aar包中的；
+--Android sample dev key: 5961e1d969a94727a8ef4c8a6d2bea63 region:chinaeast2;
+--SDKlog中synthesis完成标志： ExecuteSynthesis: audio duration 
+--Public samples for all platforms： https://github.com/Azure-Samples/cognitive-services-speech-sdk  
+--TTS展示页面：
+    https://docs.microsoft.com/zh-cn/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp 
+    https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/#overview
+--我们的tts engine 的linux build 基于 gcc7.5 ubentu18.04
+--Linux sample build: 
+    export LD_LIBRARY_PATH=../SDK/public/lib
+============================================================================================================================================================
 #build linux UT,cmake: 
 1.linux build cmake :cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
 2.linux utest cmake :-DCMAKE_BUILD_TYPE=Debug -DBUILD64=1 CMakeLists.txt
 3.需要在onnx里面加 MS.TTS.NeuralTTS.ONNXLib.(在artifact- TextToSpeech里搜一下)
 
+============================================================================================================================================================
+--windows虚拟机 stcsrv-G64
+--Nerual TTS web portal: http://stcvm-h84:8081/
+--linux虚拟机 stcvl-212：
+Host V-ciguo
+  HostName stcvl-212
+  User v-ciguopassword
+
+============================================================================================================================================================
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
 2.22 测试Yulin的NDK; 测试th-th model; update sdk in DeviceTTSRelease
@@ -170,7 +190,21 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 5.19 moyu；测试BYD报的前端‘已设置为波浪模式’，安卓和windows测试不一致；看HH报的空指针问题, embedded config没设置；
 5.20 SGM的 speak掐头问题，播报不全；moyu
 
-5.21 广汽GAV的合成失败问题，每次先stop再speak，连续按speak，会出现不出声音的情况；SGM的车机播放不出声的问题，按2 3 次speak才能播放，手机上没问题，怀疑是buffer小，调大了试试；
+5.23 广汽GAC的合成失败问题，每次先stop再speak，连续按speak，会出现不出声音的情况；SGM的车机播放不出声的问题，按2 3 次speak才能播放，手机上没问题，怀疑是buffer小，调大了试试；
+5.24 GAC的问题解决，Yulin改了stop，异步改成 完成.get（）；
+5.25 moyu;
+5.26 改sample for linux for 宝马；看GAC的crash的问题，怀疑是.so加载慢，未解决；
+5.27 改sample for linux for 宝马；
+
+5.30 改sample for linux for 宝马; test a hiphi pronounce issue fix or not (重读2);
+5.31 moyu；GAC的init crash的问题；
+6.1 改engine代码，查看Android上的wordbreaker结果；
+6.2 moyu；
+
+6.6 帮Gaiping验证前端修复；给gac更新个离线config来匹配在线音色；
+6.7 GAC的cache问题，如何查看已缓存句子？;宝马开会，提供x64版本的lib,集成问题；查ssml不能1%调节rate的问题；
+6.8 GAC的cache问题，没有hit cache, 因为cache.json没有更新；
+6.9 Gaiping的读音测试；
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
@@ -190,6 +224,8 @@ b.	Ensure the next speak after stop is success and output is expected.
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 ../private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake -B.
+
+cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
 
 void* TestStop(void* pIMSSpeechSynthesize)
 {
