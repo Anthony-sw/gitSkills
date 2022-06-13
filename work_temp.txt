@@ -45,6 +45,7 @@ git sparse？
 学习windows 批处理程序；
 一个bug:ssml调rate不是按1%的梯度； durationpredictor.cpp852行
 GAC更新stop的改动，devicettsrelease也更新？
+carAssistant?
 
 
   private void stopSynthesizing() {
@@ -71,7 +72,12 @@ GAC更新stop的改动，devicettsrelease也更新？
 
 <speak xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xmlns:emo='http://www.w3.org/2009/10/emotionml' version='1.0' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural' style='Cheerful' rate='3%'><prosody rate='6%'>您有电话来自13752533002，接听还是挂断?</prosody></voice></speak>
 
+6%rate fnumber 0.530385911 
+7%rate fnumber 0.615855992
 
+int nStatus = 0;
+    string SsmlFilePath = "00ssml.txt";
+    nStatus=SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_SSML, "R6.wav", SsmlFilePath);
 
 
 

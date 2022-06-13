@@ -201,10 +201,13 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 6.1 改engine代码，查看Android上的wordbreaker结果；
 6.2 moyu；
 
-6.6 帮Gaiping验证前端修复；给gac更新个离线config来匹配在线音色；
+6.6 帮Gaiping验证前端修复；给gac更新个离线config来匹配在线音色；build半天Embeddedtts，结果是onnx包装了个过期的。。。
 6.7 GAC的cache问题，如何查看已缓存句子？;宝马开会，提供x64版本的lib,集成问题；查ssml不能1%调节rate的问题；
 6.8 GAC的cache问题，没有hit cache, 因为cache.json没有更新；
 6.9 Gaiping的读音测试；
+6.10 moyu;
+
+6.13 GAC语音，解决cache太多空间不够400m的问题；试图stop通过pr；
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
