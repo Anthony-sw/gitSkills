@@ -74,10 +74,12 @@ carAssistant?
 
 6%rate fnumber 0.530385911 
 7%rate fnumber 0.615855992
+16% 1.3509
+
+long lRate = ProsodyHelper::CalculateRate(pWord->m_pFragment->state.pProsody->rate);
 
 int nStatus = 0;
     string SsmlFilePath = "00ssml.txt";
     nStatus=SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_SSML, "R6.wav", SsmlFilePath);
-
 
 
