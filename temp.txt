@@ -210,7 +210,7 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 6.13 GAC语音，解决cache太多空间不够400m的问题；试图stop通过pr；
 6.14 前端测试十几条语句/分词；宝马：linux集成车机比较复杂，连server的话后端封闭，demo的时候只能用pc作为代理连接服务，可能还需要一个月；宝马一年大概三次3 7 11月大的release；
     离线模型用ssml中prosody tag中调节rate为啥不能按1%调节，找到原因；stop pr通过；BYD播报卡顿，看log;
-
+6.15 查ssml不能按1%，昨天查的是用的neural voice,今天找sps；wavegenerator 3630行 怀疑；r6=17,18不一样；看byd的离线合成卡顿log；
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
