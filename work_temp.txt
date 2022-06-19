@@ -46,6 +46,7 @@ git sparse？
 一个bug:ssml调rate不是按1%的梯度； durationpredictor.cpp852行
 GAC更新stop的改动，devicettsrelease也更新？
 carAssistant?
+lixiang的实车测试stop延迟3秒问题；
 
 
   private void stopSynthesizing() {
@@ -75,15 +76,32 @@ carAssistant?
 6%rate fnumber 0.530385911 
 7%rate fnumber 0.615855992
 16% 1.3509
+17% 1.42910945
+
+10%pitch 1.100
 
 long lRate = ProsodyHelper::CalculateRate(pWord->m_pFragment->state.pProsody->rate);
 
-nStatus=SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_SSML, "R6.wav", SsmlFilePath);
 
 char ssml[] = "<?xml version='1.0'?><speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis/synthesis.xsd' xml:lang='en-US'>\
 		<prosody rate='7%' pitch='12%'>This approach is also evident in the use of XML as the data.</prosody></speak>";
 error = pIMSSpeechSynthesize->Speak(ssml, MSTTSContentType_SSML, &nTotalCharSpoken);
 
-rate.flNumber
+rate.flNumber 
+
+
+//Note: Use these lines to call Stop synchronously before starting a new speak
+                    //if (synthesizer != null) {
+                    //    synthesizer.StopSpeakingAsync().get();
+                    //}
+
+42876 147次 我在呢</voice></speak>
+42378 146次  request id: 26269446cc7442d283c212ad027e79b4; text:  哈喽</voice></speak>
+
+underrun 42708 -- 42861
+
+40673有问题
+
+4432 下次synthesis 5424
 
 
