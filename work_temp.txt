@@ -104,4 +104,7 @@ underrun 42708 -- 42861
 
 4432 下次synthesis 5424
 
+if(NOT ENABLE_UWP)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../Test/Functional tests/Functional)
+endif()
 

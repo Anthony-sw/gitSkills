@@ -215,6 +215,9 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 6.16 BYD在线也卡顿，看log；改stoptest的pr；Lixiang的实车测试 stop卡顿3秒问题；
 6,17 BYD看log，定位问题应该不是SDK,而是他们的audioflinger的underrun；看NIO的问题，stopAsync卡住了下一次speak播放不了；更新sample;
 
+6.20 查ssml不能按1%，hmm的找到；发ssml改动pr；check in stop test；
+
+
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
 utest/textanalyzer/textanalyzertest.cpp 改过？？？
