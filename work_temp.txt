@@ -47,6 +47,7 @@ git sparse？
 GAC更新stop的改动，devicettsrelease也更新？
 carAssistant?
 lixiang的实车测试stop延迟3秒问题；
+gac给他们三个ini挑；
 
 
   private void stopSynthesizing() {
