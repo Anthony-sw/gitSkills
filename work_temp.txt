@@ -109,3 +109,6 @@ if(NOT ENABLE_UWP)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../Test/Functional tests/Functional)
 endif()
 
+
+我是小齐，你的智能助手.
+
