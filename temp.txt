@@ -23,6 +23,8 @@ visualstudio format 快捷键： ctrl k,ctrl f
 需要看的u8编码问题：
 http://www.cplusplus.com/doc/tutorial/constants/
 
+标贝git : https://github.com/data-baker/SynthesisMixDemo.git
+
 ============================================================================================================================================================
 carbon build参考 : Carbon\ci\build-windows.yml
 
@@ -218,7 +220,8 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 6.20 查ssml不能按1%，hmm的找到；发ssml改动pr；check in stop test；
 6.21 neural的已经提了pr；BYD开会，讨论卡顿问题；
 6.22 测了个zhHK的font是否可以speak; 改pr; 测一些前端的wordBreak; 给GAC提供三个声音；
-
+6.23 看connectedcarAPP的代码；看GAC的crash的问题；看byd卡顿的log；
+6.24 看byd的问题log；换电脑
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
