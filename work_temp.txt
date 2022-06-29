@@ -11,7 +11,7 @@ large corpus for every language:https://msasg.visualstudio.com/DefaultCollection
 ！！！以后提交pr，需要Squash commit！！！！！！！！！！！！！！！！！
 给customer更新的时候注意： Tokens.xml里面的project名字；.ini里面的throttling；
 
-http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
+http://stcvm-h84:8081/ 
 
 https://github.com/Azure-Samples/cognitive-services-speech-sdk  Public samples for all platforms;
 
@@ -47,7 +47,9 @@ git sparse？
 GAC更新stop的改动，devicettsrelease也更新？
 carAssistant?
 lixiang的实车测试stop延迟3秒问题；
-gac给他们三个ini挑；
+Lixiang的@sheng @Hippo 之前那个日志落盘造成的tts卡顿问题，能不能出一个SDK，当前sop版本已经关闭了日志，主线版本还是没关，测试还会发现这种bug；
+BYD crash；BYD 卡顿；
+GAC 好的，我们之前提的控制当次合成是否缓存的接口什么时候能加呢？；
 
 
   private void stopSynthesizing() {
@@ -110,5 +112,4 @@ if(NOT ENABLE_UWP)
 endif()
 
 
-我是小齐，你的智能助手.
 
