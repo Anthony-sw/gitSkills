@@ -23,7 +23,7 @@ https://azure.microsoft.com/zh-cn/services/cognitive-services/text-to-speech/#ov
 
 Host V-ciguo
   HostName stcvl-212
-  User v-ciguopassword
+  User v-ciguo
 password= Pass_word
 一台linux的虚拟机，密码Pass_word
 

@@ -80,8 +80,9 @@ carbon build参考 : Carbon\ci\build-windows.yml
 --linux虚拟机 stcvl-212：
 Host V-ciguo
   HostName stcvl-212
-  User v-ciguopassword
+  User v-ciguo
 
+密码Pass_word
 ============================================================================================================================================================
 
 2.21 看git文档 ；测试BYD 调系统时间无法调用在线语音问题的，测具体多久会不行；
@@ -233,6 +234,10 @@ E:\dongyue_works\03_carAssistant\ConvAISpeechVA\ConvAISpeechVA\ConnectedCarApp\s
 E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 gradle-7.2-all.zip
 
 ============================================================================================================================================================
+6.30 测试一些font；看长城的bug；看car app;
+
+
+
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
