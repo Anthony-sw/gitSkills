@@ -225,8 +225,8 @@ http://stcvm-h84:8081/ 没有这个的权限，看看去公司有没有；
 6.24 看byd的问题log；换电脑
 
 6.27 看byd的crash新问题；看connectedcarAPP；
-6.28 BMW：linux和Android正常运行，但linux是在pc上可用，上车缺一个库，需要重新编译一个.so; 试图重现BYD的crash问题（不断的speak stop就可能crash），但没法重现; GAC粤语没法speak;
-6.29 更新 测试一些repo；看car app 看android教程;
+6.28 BMW：linux和Android正常运行，但linux是在pc上可用，上车缺一个库，需要重新编译一个.so; 试图重现BYD的crash问题（不断的speak stop就可能crash），但没法重现; GAC粤语没法speak,发现是offlineName设置错了;
+6.29 更新 测试一些SDK,Yulin fix for GAC和BYD，给BYD加个lock，给GAC加接口limit cache capacity；看car app 看android教程;
 ============================================================================================================================================================
 E:\dongyue_works\03_carAssistant\ConvAISpeechVA\ConvAISpeechVA\ConnectedCarApp\build.gradle 54行 注释掉；
 E:\dongyue_works\03_carAssistant\ConvAISpeechVA\ConvAISpeechVA\build.gradle 10行 改成7.1.3
@@ -235,6 +235,7 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 
 ============================================================================================================================================================
 6.30 测试一些font；看长城的bug；看car app;
+7.1 测了一些wb results；测了给NIO的六个fonts;moyu;Lixiang报了bug，没看到问题，需要SDKlog；
 
 
 

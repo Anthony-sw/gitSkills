@@ -98,18 +98,13 @@ rate.flNumber
                     //    synthesizer.StopSpeakingAsync().get();
                     //}
 
-42876 147次 我在呢</voice></speak>
-42378 146次  request id: 26269446cc7442d283c212ad027e79b4; text:  哈喽</voice></speak>
-
-underrun 42708 -- 42861
-
-40673有问题
-
-4432 下次synthesis 5424
 
 if(NOT ENABLE_UWP)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../Test/Functional tests/Functional)
 endif()
 
+APPPPPPPPPPPPPPPP:
+String f = this.context.getExternalFilesDir("/SrModel") + "/Computer_kws.table";
+kwsModel = KeywordRecognitionModel.fromFile(this.context.getExternalFilesDir("/SrModel") + "/Computer_kws.table");
 
-
+config.setProperty("SPEECH-RecoModelIniFile", this.context.getExternalFilesDir("/SrModel") + "/zh_bias_v3_small/sr_beam3.ini");
