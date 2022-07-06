@@ -102,9 +102,16 @@ rate.flNumber
 if(NOT ENABLE_UWP)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../Test/Functional tests/Functional)
 endif()
+============================================================================================================================================================
 
 APPPPPPPPPPPPPPPP:
 String f = this.context.getExternalFilesDir("/SrModel") + "/Computer_kws.table";
 kwsModel = KeywordRecognitionModel.fromFile(this.context.getExternalFilesDir("/SrModel") + "/Computer_kws.table");
 
 config.setProperty("SPEECH-RecoModelIniFile", this.context.getExternalFilesDir("/SrModel") + "/zh_bias_v3_small/sr_beam3.ini");
+============================================================================================================================================================
+
+ synthesizer.playStream(content);
+
+C:\Users\v-dongyueli\AppData\Local\Android\Sdk\platform-tools\adb.exe -d logcat com.microsoft.cognitiveservices.speech.samples.speechsynthesis:V > logcat.txt
+

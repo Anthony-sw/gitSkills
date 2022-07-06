@@ -5,6 +5,9 @@ https://docs.microsoft.com/zh-cn/
 https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=msvc-170 函数
 
 ============================================================================================================================================================
+teams？？Yu chao？？
+
+some words: scenario 
 
 https://www.zhihu.com/question/444825341 java学习路径
 
@@ -237,6 +240,9 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 6.30 测试一些font；看长城的bug；看car app;
 7.1 测了一些wb results；测了给NIO的六个fonts;moyu;Lixiang报了bug，没看到问题，需要SDKlog；
 
+7.4 GAC 有网络的时候会走本地的播报，走了本地的日志; car app
+7.5 NIO的离线播报不了,测repro，无法repo；给GAC测动态切换发音人，并更新deviceTTSrelease ;更新NIO的repo；ini不能按1%去调整？？；car app可以tts speak；
+7.6 GWM调一个pitch ini；r108 p?
 
 
 
