@@ -115,3 +115,4 @@ config.setProperty("SPEECH-RecoModelIniFile", this.context.getExternalFilesDir("
 
 C:\Users\v-dongyueli\AppData\Local\Android\Sdk\platform-tools\adb.exe -d logcat com.microsoft.cognitiveservices.speech.samples.speechsynthesis:V > logcat.txt
 
+copy E:\00cache\XiaoxiaoHMMSPS\XiaoxiaoHMMSPS\*.dat 
