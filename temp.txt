@@ -242,87 +242,25 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 
 7.4 GAC 有网络的时候会走本地的播报，走了本地的日志; car app
 7.5 NIO的离线播报不了,测repro，无法repo；给GAC测动态切换发音人，并更新deviceTTSrelease ;更新NIO的repo；ini不能按1%去调整？？；car app可以tts speak；
-7.6 GWM调一个pitch ini；r108 p? 下午看Android 看不进去
+7.6 GWM调一个pitch ini；r108 p115? 下午看Android 看不进去
 7.7 moyu;
-7.8 帮前端更新font;byd的有网情况切离线，看log;lixiang的SDK不能跑hmm的离线模型；
+7.8 帮前端更新font; byd的有网情况切离线，看log;lixiang的SDK不能跑hmm的离线模型；
 
+7.11 GWM加BR0; 配vs环境和ut环境；BMW的连不到网，看是不是网络库比较特殊？看是不是网络配置问题？; 改非neural的ssml rate pitch的问题；
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
 utest/textanalyzer/textanalyzertest.cpp 改过？？？
 
-As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
-1.	We need to test the stop on random timing:
-a.	Ensure stop really works: verified through output audio and event.
-b.	Ensure no error: check return value, no hanging happen.
-c.	Ensure the next speak after stop is success and output is expected.
-2.	We need to test the stop on different input:
-a.	Using different prosody tag with different pitch, rate and volume.
-b.	Ensure the next speak after stop is success and output is expected.
-
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 CMakeLists.txt
 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded -DBUILD_STATIC_LIB=ON -DENABLE_UT=ON -DLomiJA_TARGET_PLATFORM=x64 ../private/dev/speech/tts/shenzhou/Platforms/VsBuilds/build/cmake -B.
 
+linux： 
 cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
 
-void* TestStop(void* pIMSSpeechSynthesize)
-{
-    srand((unsigned int)time(0));
-    unsigned int sleep_length = rand() % 2000 + 1;
-#ifdef __GNUC__
-	sleep(sleep_length);
-#else
-    Sleep(sleep_length);
-    printf("sleep for %d ms\n", sleep_length);
-#endif
-    HRESULT hr = S_OK;
-    hr = ((IMSSpeechSynthesize*)pIMSSpeechSynthesize)->Stop();
-    //UTF_VERIFY_HR(hr);
- 
-	pthread_exit(NULL);
-    
-    return NULL;
-}
-
-  //Voicebaseline
-    SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText, string("Functional.cpp.stop.Long.BaseLine.wav"), TestConfig.LongStringPath);
-    ULONG64 sizebaseline = GetFileSize(_T("Functional.cpp.stop.Long.BaseLine.wav"));
-
-    pthread_t thread;
-	int error = 1;
-    CTTSString outputFileName;
-	for (int i = 0; i < 5; i++)
-	{
-		error = pthread_create(&thread, NULL, TestStopInRandom, (void*)pIMSSpeechSynthesize);
-		if (error != 0)
-		{
-			printf("Error:unable to create thread");
-		}
-
-        char pBuffer[GENERAL_BUFFER_SIZE];
-        sprintf(pBuffer, "Functional.cpp.stop.Long.No%d.wav", i);
-		UTF_VERIFY_HR(SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText,
-			string(pBuffer), TestConfig.LongStringPath));
-        outputFileName.AppendAHR(pBuffer);
-        ULONG64 sizeStopRandom = GetFileSize(outputFileName);
-        UTF_VERIFY(sizeStopRandom< sizebaseline);
-        outputFileName.Clear();
-
-		pthread_join(thread, NULL);
-
-        //confirm the next speak 
-        sprintf(pBuffer, "Functional.cpp.stop.Long.No%d.confirm.wav", i);
-        UTF_VERIFY_HR(SpeakFunction(pIMSSpeechSynthesize, ttsOutputWavFile, MSTTSContentType_PlainText,
-            string(pBuffer), TestConfig.LongStringPath));
-        outputFileName.AppendAHR(pBuffer);
-        ULONG64 sizeStopRandomConfirm = GetFileSize(outputFileName);
-        UTF_VERIFY(sizeStopRandomConfirm == sizebaseline);
-        outputFileName.Clear();
-	}
-    
 
 WCHAR actual_pron[TTS_MAX_PRON_LENGTH] = {NULL};
         wcscpy_s(actual_pron, pWord->GetPron());
