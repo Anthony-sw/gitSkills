@@ -247,6 +247,7 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 7.8 帮前端更新font; byd的有网情况切离线，看log;lixiang的SDK不能跑hmm的离线模型；
 
 7.11 GWM加BR0; 配vs环境和ut环境；BMW的连不到网，看是不是网络库比较特殊？看是不是网络配置问题？; 改非neural的ssml rate pitch的问题；
+7.12 宝马的问题：rest环境可以通，但online的话？是不是本地缺少什么证书？；改非neural的ssml rate pitch的问题，发了pr，太risk, 不要改动了；
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
