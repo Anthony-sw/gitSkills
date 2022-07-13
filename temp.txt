@@ -28,6 +28,11 @@ http://www.cplusplus.com/doc/tutorial/constants/
 
 标贝git : https://github.com/data-baker/SynthesisMixDemo.git
 
+申请查看 https://dataexplorer.azure.com/clusters/aria10  的权限 myaccess: https://myaccess/identityiq/home.jsf ，看server上的tts结果；
+
+wiki文档 https://eng.ms/docs/cloud-ai-platform/ai-platform/ai-platform-cognitive-services/cognitive-speech/speech-services/speech-wiki/speechoutput
+
+
 ============================================================================================================================================================
 carbon build参考 : Carbon\ci\build-windows.yml
 
@@ -248,6 +253,7 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 
 7.11 GWM加BR0; 配vs环境和ut环境；BMW的连不到网，看是不是网络库比较特殊？看是不是网络配置问题？; 改非neural的ssml rate pitch的问题；
 7.12 宝马的问题：rest环境可以通，但online的话？是不是本地缺少什么证书？；改非neural的ssml rate pitch的问题，发了pr，太risk, 不要改动了；
+7.13 BYD 在线 cache延迟大的问题，正常情况在线avg 三百多，cache 50多ms，所以不算多；更新GWM的repo;
 
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
