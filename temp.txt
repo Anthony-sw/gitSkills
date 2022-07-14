@@ -76,6 +76,12 @@ carbon build参考 : Carbon\ci\build-windows.yml
 --我们的tts engine 的linux build 基于 gcc7.5 ubentu18.04
 --Linux sample build: 
     export LD_LIBRARY_PATH=../SDK/public/lib
+
+--preconnection 
+  5分钟没有任何通信会断开
+  10分钟强制断开;
+--离在线切换：如果没有连接，比如压根没连wifi，会直接切；如果连了wifi但没有网络连接，会等超时；
+
 ============================================================================================================================================================
 #build linux UT,cmake: 
 1.linux build cmake :cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TARGET=Embedded CMakeLists.txt
@@ -254,7 +260,7 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 7.11 GWM加BR0; 配vs环境和ut环境；BMW的连不到网，看是不是网络库比较特殊？看是不是网络配置问题？; 改非neural的ssml rate pitch的问题；
 7.12 宝马的问题：rest环境可以通，但online的话？是不是本地缺少什么证书？；改非neural的ssml rate pitch的问题，发了pr，太risk, 不要改动了；
 7.13 BYD 在线 cache延迟大的问题，正常情况在线avg 三百多，cache 50多ms，所以不算多；更新GWM的repo;
-
+7.14 hongqi 手机跑通了，车机没上的；Preconnection的时间？什么时候需要重新preconnection
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
