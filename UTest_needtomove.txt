@@ -1,4 +1,4 @@
-acousticprosodytaggerTest           ??  1 failed:CompareBinaryFile wav文件; 2 Exception: CompareTextFile 编码不一样，unicode
+acousticprosodytaggerTest           ??  1 failed:CompareBinaryFile wav文件; 
 AcronymHandlingTest
 baseclasstest
 BLSTMPolyphonyTest

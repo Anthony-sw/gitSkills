@@ -29,16 +29,6 @@ password= Pass_word
 
 export LD_LIBRARY_PATH=../SDK/public/lib
 
-
-As we discussed, we need to enhance the test on Stop API. Here’s some thought in my mind:
-1.	We need to test the stop on random timing:
-a.	Ensure stop really works: verified through output audio and event.
-b.	Ensure no error: check return value, no hanging happen.
-c.	Ensure the next speak after stop is success and output is expected.
-2.	We need to test the stop on different input:
-a.	Using different prosody tag with different pitch, rate and volume.
-b.	Ensure the next speak after stop is success and output is expected.
-
 git sparse？
 申请一个wifi？
 学习下java future？.git为什么大？
@@ -115,18 +105,10 @@ config.setProperty("SPEECH-RecoModelIniFile", this.context.getExternalFilesDir("
 
 C:\Users\v-dongyueli\AppData\Local\Android\Sdk\platform-tools\adb.exe -d logcat com.microsoft.cognitiveservices.speech.samples.speechsynthesis:V > logcat.txt
 
-copy E:\00cache\XiaoxiaoHMMSPS\XiaoxiaoHMMSPS\*.dat 
 
-GWM test script:
-[1:31 PM] Yue Sheng
-在下江湖人称哈弗，你可以叫我小哈，长城汽车门下的哈弗大将军。从现在开始我就是你的全职管家了，如果需要导航、打电话、听歌、控制车辆等，都可以交给我。
+Anson.9956
 
-[1:31 PM] Yue Sheng
-你忘了，我是你的小哈呀。为你导航、放歌、开空调，还随时陪聊的哈弗。
-
-[1:32 PM] Yue Sheng
-我是哈弗，你可以叫我小哈，你的全能助理，会的可多了。能帮你导航、放音乐、打电话、控制车窗等，还有很多控制车辆的技能，快来使唤我。
-
+hongqi: 多语言，比如xiaoxiao可以读阿拉伯文字？导航的问题，走强制离线？；需要经过红旗云 转发，可以？
 
 
 
