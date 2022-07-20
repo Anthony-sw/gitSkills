@@ -32,6 +32,8 @@ http://www.cplusplus.com/doc/tutorial/constants/
 
 wiki文档 https://eng.ms/docs/cloud-ai-platform/ai-platform/ai-platform-cognitive-services/cognitive-speech/speech-services/speech-wiki/speechoutput
 
+公司wifi注册 : https://getconnected.microsoft.com/deviceRegister/deviceManagement
+
 
 ============================================================================================================================================================
 carbon build参考 : Carbon\ci\build-windows.yml
@@ -270,6 +272,7 @@ E:\00cache\ConvAISpeechVA\gradle\wrapper\gradle-wrapper.properties 6行 改成 g
 红旗：hongqi: 多语言，比如xiaoxiao可以读阿拉伯文字？导航的问题，走强制离线？90%可以cache，可以用云端cache，汽车共享；需要经过红旗云转发，可以？可以，但不能走SDK，直接从云端调用；
 UT acousticprosodytaggerTest，linux ut编译弄了半天，下午开会跟宝马 红旗；
 7.20 从device上dump Yunxi的wav，跟Alfred新train的模型比较；更新前端font； UT acousticprosodytaggerTest；
+
 
 标贝：f866fd0fccf44076a5fb9a874fafb2db ID:c0035080f332460583f96520d2cab5aa
 
